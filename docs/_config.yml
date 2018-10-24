@@ -18,13 +18,12 @@
 
 ##### URL #####################################################################
 # Serve on OER
-# url: "https://oer.uni-marburg.de"
-# baseurl: "/data/mriliasmooc/lm_data/lm_1111"
+url: "https://oer.uni-marburg.de"
+baseurl: "/data/mriliasmooc/lm_data/lm_2828"
 
 # Serve on GitHub
-url: https://marburg-open-courseware.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl: "/moer-msc-gis/"
-
+# url: https://marburg-open-courseware.github.io
+# baseurl: "/moer-msc-remote-sensing/"
 
 ##### Title ###################################################################
 title: Lab of Environmental Informatics
@@ -53,7 +52,7 @@ author:
   flickr           : "https://www.flickr.com/environmentalinformatics-marburg/"
   facebook         : "https://www.facebook.com/GeographieMarburg/"
   foursquare       :
-  github           : "marburg-open-courseware"
+  github           : "GeoMOER"
   gitlab           :
   google_plus      :
   keybase          :
