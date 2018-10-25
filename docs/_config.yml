@@ -35,17 +35,17 @@ description: >- # this means to ignore newlines until next item
 
 ##### Social Sharing ##########################################################
 twitter:
-  username         : &twitter "EnvIn_UMR"
+  username         : &twitter "creuden"
 
 ##### Lecturer settings #######################################################
 author:
-  name             : "Thomas Nauss"
-  avatar           : "/assets/images/tnauss.jpg"
+  name             : "Christoph Reudenbach"
+  avatar           : "/assets/images/creudenbach.jpg"
   bio              : "Marburg University"
   location         : "Marburg, DE"
-  email            : "nauss@geo.uni-marburg.de"
-  uri              : "https://www.uni-marburg.de/fb19/fachgebiete/umweltinformatik/"
-  home             : "https://www.uni-marburg.de/fb19/fachgebiete/umweltinformatik/nausst/index.html"
+  email            : "reudenbach@geo.uni-marburg.de"
+  uri              : "https://www.uni-marburg.de/fb19/personal/mitarbeiter/reudenbachc/index.html"
+  home             : "https://www.uni-marburg.de/fb19/personal/mitarbeiter/reudenbachc/index.html"
   bitbucket        :
   codepen          :
   dribbble         :
@@ -64,7 +64,7 @@ author:
   stackoverflow    : 
   steam            :
   tumblr           :
-  twitter          : "https://twitter.com/geographie_umr"
+  twitter          : "https://twitter.com/creuden"
   vine             :
   weibo            :
   xing             :

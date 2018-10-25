@@ -5,7 +5,7 @@ date: '2018-02-06 13:00:00 +0100'
 header:
   overlay_color: "#000"
   overlay_filter: 0.6
-  overlay_image: "/assets/images/remsens_title.jpg"
+  overlay_image: "/assets/images/gis_title.jpg"
   caption: 'Photo credit: [**Environmental Informatics Marburg**](https://www.flickr.com/environmentalinformatics-marburg/)'
   cta_label: Go to course units
   cta_url: "/units.html"
