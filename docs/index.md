@@ -1,11 +1,11 @@
 ---
-title: Geographical Information Systems
+title: GIS
 layout: splash
 date: '2018-02-06 13:00:00 +0100'
 header:
   overlay_color: "#000"
   overlay_filter: 0.6
-  overlay_image: "/assets/images/gis_title.jpg"
+  overlay_image: "/assets/images/remsens_title.jpg"
   caption: 'Photo credit: [**Environmental Informatics Marburg**](https://www.flickr.com/environmentalinformatics-marburg/)'
   cta_label: Go to course units
   cta_url: "/units.html"
@@ -51,15 +51,15 @@ The course is linked to the research of the Nature 4.0 project, heavily integrat
 | 2 | Understanding remote sensing data and how to handle it | Reflect the guiding principals of remote sensing and check out various methods for handling raster datasets and raster information retrieval in R and GIS |
 || **Project 1: A picture is worth a thousand words** | Baseline image processing |
 | 3 | Problem: Comprehensive image collection for tree delineation, species prediction, and heterogeneity mapping | Decompose the problem, identify research tasks and sketch a project worklfow |
-| 4 | Spotlight: Data preprocessing | Deal with data preprocessing topics and continue your project | 
-| 5 | Spotlight: Artificial images | Deal with artificial images and continue your project | 
-| 6 | Spotlight: Land-cover classification | Deal with land-cover classifications and continue your project | 
-| 7 | Continue your project ||
+| 4 | Spotlight: LiDAR data processing | Dealing with storage expensive LiDAR data | 
+| 5 | Spotlight: Artificial images | Calculation of artificial images | 
+| 6 | Compilation of area wide dataset | Transfer data to parallel GIS course project | 
+| 7 | Communicating remote sensing research | Preparation for poster presentation |
 | 8 | Project 1 presentation | Present your project results to your peers |
 | 9 | Peer feedback on project presentation | Evaluate the work of your peers, reflect your own workflow and discuss potential improvements |
 || **Project 2: Seeing the tree species for the wood** | Machine-learning-based prediction of species |
 | 10 | Problem: Predict tree species in space | Decompose the problem, identify research tasks and sketch a project worklfow |
-| 11 | Spotlight: Machine learning models and spatial data | Deal with machine learning models and error estimation strategies for spatial data |
+| 11 | Spotlight: Land cover prediction and machine learning models | Deal with machine learning models and error estimation strategies for spatial data |
 | 12 | Continue your project ||
 | 13 | Project 2 presentation | Present your project results to your peers |
 || **Wrap up** ||
