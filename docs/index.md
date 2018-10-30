@@ -21,17 +21,20 @@ feature_row_ilos:
 
 {% include feature_row id="feature_row_intro" type="center" %}
 
-Field surveys generally face the compromise between their level of detail, their extend and their temporal repetition. One can either study selected processes in detail on a very limited number of observation sites or focus on a more landscape oriented survey using more generalized observations. The restrictions can be loosened by linking survey information to area wide remote sensing observations and the modelling of raster maps which can further be used for scientific analysis. 
+One could claim that the fact living on the surface of the earth and only get to know a small space through direct personal experience is the most important motivation for most of the geographic work. Compensation for this lack of direct experience has been and is being made, especially in scientific geography, with the help of efficient spatio-temporal techniques of abstraction. However, over the past few decades, traditional communication techniques as maps and descriptions have initially been supplemented by a variety of media communication tools of spatial information and, more recently, increasingly replaced.
 
-Remote sensing has a history of more than 150 years and is a well established, cost-effective and powerful tool but it has to be applied with caution in order to gain robust results. The advent of high performance computing along with machine learning algorithms has just opened up a new chapter in data mining and information retrieval using a wide variety of ground-based, airborne and satellite sensors. This requires a large variety of skills related to data handling, machine learning, team-based software development and workflow documentation and the presentation and discussion of results.
+Nevertheless, in relation to the complexity of the world and the enormous dynamics of its change, despite all scientific efforts, we know only insufficiently about the spatial-temporal events of the present. Much less do we know about the past and basically nothing about the future of the world.
+Irrespective of this, knowledge of spatial and/or temporal aspects of our environment is increasingly in demand for action-relevant relationships. Whether we ask as tourists, consumers, producers or planners spatial information, or even knowledge. As such actors, we need in almost all social and economic issues not only detailed and reliable information, but also knowledge and knowledge about unknown space-time relationships and processes and - also with rising tendency - also about expected future developments. But also individually, due to our high mobility, globalized connections and mobile communication technologies, a rapidly growing number of people demand a comprehensive spatiotemporal knowledge.
+
+Geographic information systems (GIS) are versatile and powerful software tools that are used in modeling, analysis, data mining merging and numerous other spatio-temporal applications. Nevertheless the most powerful tool is our mind developing the concepts and developing the necessary algorithms.
 
 # Intended learning outcomes
 At the end of this course you should be able
 
-* to research remote sensing methods and design workflows suitable to solve common remote sensing problems,
-* to deploy your remote sensing workflows using geo-information science tools, R scripts and collaborative code management platforms for task management and issue tracking, 
-* to critically evaluate your remote sensing analysis,
-* to document and communicate your remote sensing workflow and analysis results,
+* to understand adapt and develop geographic information science methods and design workflows suitable to solve common spatio temporal data-related issues,
+* to deploy your workflows using geo-information science tools, R scripts and collaborative code management platforms for task management and issue tracking, 
+* to critically evaluate your spatiao-temporal analysis,
+* to document and communicate your workflow and analysis results,
 * to reflect your project workflow for potential improvements.
 
 
@@ -46,20 +49,20 @@ The course is linked to the research of the Nature 4.0 project, heavily integrat
 
 | Session | Topic | Content |
 |-------|--------|---------|
-|| **Remote sensing basics** ||
-| 1 | Remote Sensing in environmental research and nature conservation | Get to know basic remote sensing principles, the Nature 4.0 project approach and the study area of this course |
-| 2 | Understanding remote sensing data and how to handle it | Reflect the guiding principals of remote sensing and check out various methods for handling raster datasets and raster information retrieval in R and GIS |
-|| **Project 1: A picture is worth a thousand words** | Baseline image processing |
-| 3 | Problem: Comprehensive image collection for tree delineation, species prediction, and heterogeneity mapping | Decompose the problem, identify research tasks and sketch a project worklfow |
-| 4 | Spotlight: LiDAR data processing | Dealing with storage expensive LiDAR data | 
-| 5 | Spotlight: Artificial images | Calculation of artificial images | 
-| 6 | Compilation of area wide dataset | Transfer data to parallel GIS course project | 
-| 7 | Communicating remote sensing research | Preparation for poster presentation |
+|| **Geographic Information Science basics** ||
+| 1 | Geographic Information Science | Get to know basic GIS principles the open software approach and the R-spatial-biotop|
+| 2 | Understanding the working environment the concept of remote sensing GIS and data anaysis and how to deal with it | Check out various methods for handling raster datasets and raster information retrieval in R and GIS |
+|| **Project 1: A picture is worth a thousand words** | Baseline data analysis |
+| 3 | Problem: Comprehensive discussion of whatever concepts for tree identification | Deconstruct the problem, identify research tasks and sketch a project workflow |
+| 4 | Spotlight: Ten and more existing approaches | Dealing with the plurality of science | 
+| 5 | Spotlight: Improving algorithms | How to add new and meaningful informations from imagery | 
+| 6 | Spotlight: Implement the preferred algorithm | Discuss and understand the results | 
+| 7 | Communicating geographical information based research | Preparation for poster presentation |
 | 8 | Project 1 presentation | Present your project results to your peers |
 | 9 | Peer feedback on project presentation | Evaluate the work of your peers, reflect your own workflow and discuss potential improvements |
-|| **Project 2: Seeing the tree species for the wood** | Machine-learning-based prediction of species |
-| 10 | Problem: Predict tree species in space | Decompose the problem, identify research tasks and sketch a project worklfow |
-| 11 | Spotlight: Land cover prediction and machine learning models | Deal with machine learning models and error estimation strategies for spatial data |
+|| **Project 2: Trees in a forest - competetion densities and more** | Index-based anaysis of tree patterns |
+| 10 | Problem: Relationship of tree (species) in space | Decompose the problem, identify research tasks and sketch a project workflow |
+| 11 | Spotlight: Densities and Competition | Identify and implement meaningful indices |
 | 12 | Continue your project ||
 | 13 | Project 2 presentation | Present your project results to your peers |
 || **Wrap up** ||
@@ -68,7 +71,7 @@ The course is linked to the research of the Nature 4.0 project, heavily integrat
 
 # Deliverables
 
-The graded course certificate will be based on a team portfolio hosted as a team repository on GitHub. The individual portfolio items are defined in the respective course assignments along with the information if they will be marked or not. Marked portfolio items encompass the presentation and peer-review of two posters which inform about the results of two problem solving assignments related to the computation and analysis of remote sensing products.
+The graded course certificate will be based on a team portfolio hosted as a team repository on GitHub. The individual portfolio items are defined in the respective course assignments along with the information if they will be marked or not. Marked portfolio items encompass the presentation and peer-review of two posters which inform about the results of two problem solving assignments related to the computation and analysis of the geographic information systems products.
 
 
 # Preparation and prerequisites

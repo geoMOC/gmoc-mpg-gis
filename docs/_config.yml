@@ -28,7 +28,7 @@ baseurl: "/data/mriliasmooc/lm_data/lm_2828"
 ##### Title ###################################################################
 title: Lab of Environmental Informatics
 name: &name "Lab of Environmental Informatics" # &name is a YAML anchor which can be *referenced later
-email: nauss@geo.uni-marburg.de
+email: reudenbach@geo.uni-marburg.de
 description: >- # this means to ignore newlines until next item
   course course-materials geography remote-sensing marburg-open-educational-resource 
   physical-geography environmental-science nature-conservation r
