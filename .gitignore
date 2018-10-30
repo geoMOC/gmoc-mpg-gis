@@ -91,3 +91,4 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 *.lock
+.Rproj.user
