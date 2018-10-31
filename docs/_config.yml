@@ -73,6 +73,7 @@ author:
 
 ##### Site configuration ######################################################
 title_separator: "|"
+excerpt_separator: <!--more-->
 
 # Build settings
 markdown: kramdown
