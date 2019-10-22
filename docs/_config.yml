@@ -18,8 +18,8 @@
 
 ##### URL #####################################################################
 # Serve on OER
-url: "https://oer.uni-marburg.de"
-baseurl: "/data/mriliasmooc/lm_data/lm_2828"
+url: "https://ilias.uni-marburg.de"
+baseurl: "/data/UNIMR/lm_data/lm_2092236/"
 
 # Serve on GitHub
 # url: https://marburg-open-courseware.github.io
