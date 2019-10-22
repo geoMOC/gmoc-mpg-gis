@@ -130,11 +130,13 @@ defaults:
       path: ""
       type: unit01
     values:
-      category: "Unit 01"
+      category: "Spatial Modelling  Concepts"
       tags: "Unit|01"
       layout: single
       sidebar:
         nav: "units" 
+      toc: true
+      toc_label: On this page      
   # unit02
   - scope:
       path: ""
