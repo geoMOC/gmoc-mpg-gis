@@ -8,7 +8,7 @@ toc_label: In this info
 
 Within this course, you will work in teams and hence you will submit your team's solutions for the course assignments to your team's GitHub-hosted learning log, i.e. your team's personal classroom repository. Don't get confused about "your team's personal repository". Once you have a GitHub account, you can create as many (team) repositories as you like at your account and invite any team members you want but for assignments within our courses, always use your respective team classroom repository. 
 
-The classroom repository will be created automatically by following a link to the respective classroom assignment which will be provided by the instructors. Your team's classroom repository will be hosted as part of GeoMOER, our learning log space at GitHub for Marburg Open Educational Ressources.
+The classroom repository will be created automatically by following a link to the respective classroom assignment which will be provided by the instructors. Your team's classroom repository will be hosted as part of GeoMOER, our learning log space at GitHub for Marburg Open Educational Resources.
 
 If not stated otherwise, the deadline for an assignment is the date and time of the next course session. The submissions generally encompass R or R markdown with compiled html files or presentations in PDF format.
 
@@ -41,21 +41,33 @@ We value freedom of choice as an important good but giving our long-term experie
 
 Your initial working environment should look like the following. It will grow over time based on additional information supplied within the individual assignments. 
 ```yaml
-<some-path-to-your-data-disk>\msc-phygeo-envinsys-plygrnd
-  |-- data
-    |-- aerial
-    |-- lidar
-    |-- grass
-    |-- tmp
-  |-- log
-  |-- run
-  |-- <your-github-team-learning-log-repository>
+└── mpg-envinsys-plygrnd
+    ├── data
+    │   ├── aerial
+    │   │   └── org
+    │   ├── auxdata
+    │   ├── data_mof
+    │   ├── grass
+    │   ├── lidar
+    │   │   ├── level0
+    │   │   ├── level1
+    │   │   ├── level2
+    │   │   └── org
+    │   └── tmp
+    ├── doc
+    ├── log
+    ├── name_of_github_team_repository
+    │   ├── doc
+    │   └── src
+    ├── run
+    └── src
 ```
 The last folder will be the one you have checkout from your GitHub-hosted team learning log.
 
 This is no guideline, this is a rule. Read it, learn it, live it and have a nice ride.  
 {: .notice--danger}
 
-Have a look at [the example on setting up a working environment]({{ site.baseurl }}/unit01/unit01-05_environment_setup).
-{: .notice--info}
+Have a look at [the example on setting up a working environment]({{ site.baseurl }}/unit01/unit01-05_environment_setup.html).
+
+
 

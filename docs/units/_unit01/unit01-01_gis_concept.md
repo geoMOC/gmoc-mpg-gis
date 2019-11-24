@@ -1,10 +1,12 @@
 ---
-title: Geography as a spatial interpretation of the world
+title: Space needs a scope
 toc: true
 toc_label: In this worksheet
 ---
 
-The approach to the topic of geographic information systems (GIS) seems unclear for beginners due to the multiple use of the term. It is therefore necessary to explain and define some terms, both from the everyday as well as from the established geographical usage. This already begins with the terms "geography" and "geographic", which are associated with the perception of the Earth's surface and the understanding and description of the  underlying processes. This brings the transparent and reproducible description of the earth, that is, a scientifically-based abstracted cognitive world experience, into the focus of a first engagement with GIS.
+The approach to the topic of geographic information systems (GIS) seems unclear for beginners due to the multiple use of the term. It is therefore necessary to explain and define some terms, both from the everyday as well as from the established geographical usage. <!--more-->
+This already begins with the terms "geography" and "geographic", which are associated with the perception of the Earth's surface and the understanding and description of the  underlying processes. This brings the transparent and reproducible description of the earth, that is, a scientifically-based abstracted cognitive world experience, into the focus of a first engagement with GIS.
+
 
 This unit summarizes the basic abstraction and communication concepts of GI systems against the background of application-oriented scientific questions.
 
@@ -39,7 +41,9 @@ Reproducibility is a key aspect of scientific research because it provides full 
 ### Forest related stuff 
  * The basic ideas of forest structures [Hashimoto et al. 2004](https://www.scirp.org/(S(czeh2tfqyw2orz553k1w0r45))/reference/ReferencesPapers.aspx?ReferenceID=493763){:target="_blank"}
  * Canopy height based crown delineation basics [Barnes et al. 2017](http://dx.doi.org/10.3390/rs9030231){:target="_blank"}{:target="_blank"}
+ * A Comparison - Delineating Individual Trees from Lidar Data [Jakubowski et al. 2013](https://www.mdpi.com/2072-4292/5/9/4163)
+ 
  
 ### Textbooks
- * The core of GIScience [Tolpekin & Stein 2012](https://research.utwente.nl/en/publications/the-core-of-giscience-a-systems-based-approach){:target="_blank"}
+ * The core of GIScience [Tolpekin & Stein 2012](https://research.utwente.nl/en/publications/the-core-of-giscience-a-systems-based-approach){:target="_blank"}, [Download](ftp://ftp.itc.nl/pub/ders/CoreBook2014_metadata.pdf){:target="_blank"} 
  * **HIGHLY Recommended**  Geocomputation with R [Lovelace, Nowosad & Muenchow 2018](https://geocompr.robinlovelace.net/){:target="_blank"}

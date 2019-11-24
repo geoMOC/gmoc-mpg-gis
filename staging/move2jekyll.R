@@ -9,7 +9,7 @@ md_files = files[grep("\\.md$", files)]
 target_folder = paste0(substr(md_files[1], 1, gregexpr(pattern ='staging', md_files[1])[[1]][1]-1),
                        "docs/_includes/")
 dir.create(target_folder, showWarnings = FALSE)
-
+f<-md_files
 for(f in md_files){
   f_in = readLines(f)
   title_line = grep("title:", f_in)

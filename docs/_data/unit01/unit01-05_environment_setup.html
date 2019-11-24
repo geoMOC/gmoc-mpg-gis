@@ -1,0 +1,447 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.13.0 by Michael Rose
+  Copyright 2013-2018 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Example: Setting up the Working Environment | Lab of Environmental Informatics</title>
+<meta name="description" content="Setting up a working or project environment requires the definition of different folder pathes and the loading of necessary R packages and additional functions. If additional software like GIS should also be accessible, respective binaries and software environments must be linked, too.For setting up a project environment, one can use a set-up script and the link2GI package.It is a good idea to name the setup script somethin like 000_setup.R and source it into every other script of the same project (i.e. include source(&lt;path-to-git-repository-folder&gt;/src/000_setup.R))Loading the librariesThe first section of the setup script handles the loading of all required libraries.# Set libraries ----------------------------------------------------------------libs = c(&quot;link2GI&quot;,         &quot;raster&quot;,         &quot;rgdal&quot;,         &quot;sp&quot;)lapply(libs, require, character.only = TRUE)Setting up the folder pathesThe next section of the setup-script handles the definition of folder pathes. One has to define the root directory of the project and all subdirectories (make sure you include the trailing “/”). This information is supplied to the link2GI::initProj() function. It returns a list of the folder names and creates the folders if they do not exist, yet. For more information have a look at the manual.# Set pathes -------------------------------------------------------------------# Automatically set root direcory depending on booted systemif(Sys.info()[&quot;sysname&quot;] == &quot;Windows&quot;){  filepath_base = &quot;C:/Users/tnauss/permanent/edu/mpg-envinsys-plygrnd&quot;} else {  filepath_base = &quot;/media/memory/permanent/edu/mpg-envinsys-plygrnd&quot;}# Set project specific subfoldersproject_folders = c(&quot;data/&quot;,                                 # data folders                    &quot;data/aerial/&quot;, &quot;data/lidar/&quot;, &quot;data/grass/&quot;,                     &quot;data/data_mof&quot;, &quot;data/tmp/&quot;,                     &quot;run/&quot;, &quot;log/&quot;,                          # bins and logging                    &quot;name_of_github_team_repository/src/&quot;,   # source code                    &quot;name_of_github_team_repository/doc/&quot;)   # markdown etc. envrmt = initProj(projRootDir = filepath_base, GRASSlocation = &quot;data/grass&quot;,                  projFolders = project_folders, path_prefix = &quot;path_&quot;,                   global = FALSE)One can now access the respecive sufolders using the list entries of the variable envrmt. The entries are named according to the subfolder names with the prefix “path_”.print(envrmt$path_data_tmp)## [1] &quot;C:/Users/tnauss/permanent/edu/mpg-envinsys-plygrnd/data/tmp/&quot;If the raster package has been loaded, it is a good choice to set the temp directory to the one of the just defined project environment.rasterOptions(tmpdir = envrmt$path_data_tmp)Linking GIS softwareIf required, on can now go on in the setup script and link selected GIS software. This generaly starts looking for the respective installations (in case one does not know all the details).# Link GIS software ------------------------------------------------------------# Find GRASS installationsgrass_path = findGRASS()# Find SAGA installationssaga_path = findSAGA()# Find OTB installationsotb_path = findOTB()More information on the link2GI package">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Lab of Environmental Informatics">
+<meta property="og:title" content="Example: Setting up the Working Environment">
+<meta property="og:url" content="http://localhost:4000/data/UNIMR/lm_data/lm_2092236/unit01/unit01-05_environment_setup.html">
+
+
+  <meta property="og:description" content="Setting up a working or project environment requires the definition of different folder pathes and the loading of necessary R packages and additional functions. If additional software like GIS should also be accessible, respective binaries and software environments must be linked, too.For setting up a project environment, one can use a set-up script and the link2GI package.It is a good idea to name the setup script somethin like 000_setup.R and source it into every other script of the same project (i.e. include source(&lt;path-to-git-repository-folder&gt;/src/000_setup.R))Loading the librariesThe first section of the setup script handles the loading of all required libraries.# Set libraries ----------------------------------------------------------------libs = c(&quot;link2GI&quot;,         &quot;raster&quot;,         &quot;rgdal&quot;,         &quot;sp&quot;)lapply(libs, require, character.only = TRUE)Setting up the folder pathesThe next section of the setup-script handles the definition of folder pathes. One has to define the root directory of the project and all subdirectories (make sure you include the trailing “/”). This information is supplied to the link2GI::initProj() function. It returns a list of the folder names and creates the folders if they do not exist, yet. For more information have a look at the manual.# Set pathes -------------------------------------------------------------------# Automatically set root direcory depending on booted systemif(Sys.info()[&quot;sysname&quot;] == &quot;Windows&quot;){  filepath_base = &quot;C:/Users/tnauss/permanent/edu/mpg-envinsys-plygrnd&quot;} else {  filepath_base = &quot;/media/memory/permanent/edu/mpg-envinsys-plygrnd&quot;}# Set project specific subfoldersproject_folders = c(&quot;data/&quot;,                                 # data folders                    &quot;data/aerial/&quot;, &quot;data/lidar/&quot;, &quot;data/grass/&quot;,                     &quot;data/data_mof&quot;, &quot;data/tmp/&quot;,                     &quot;run/&quot;, &quot;log/&quot;,                          # bins and logging                    &quot;name_of_github_team_repository/src/&quot;,   # source code                    &quot;name_of_github_team_repository/doc/&quot;)   # markdown etc. envrmt = initProj(projRootDir = filepath_base, GRASSlocation = &quot;data/grass&quot;,                  projFolders = project_folders, path_prefix = &quot;path_&quot;,                   global = FALSE)One can now access the respecive sufolders using the list entries of the variable envrmt. The entries are named according to the subfolder names with the prefix “path_”.print(envrmt$path_data_tmp)## [1] &quot;C:/Users/tnauss/permanent/edu/mpg-envinsys-plygrnd/data/tmp/&quot;If the raster package has been loaded, it is a good choice to set the temp directory to the one of the just defined project environment.rasterOptions(tmpdir = envrmt$path_data_tmp)Linking GIS softwareIf required, on can now go on in the setup script and link selected GIS software. This generaly starts looking for the respective installations (in case one does not know all the details).# Link GIS software ------------------------------------------------------------# Find GRASS installationsgrass_path = findGRASS()# Find SAGA installationssaga_path = findSAGA()# Find OTB installationsotb_path = findOTB()More information on the link2GI package">
+
+
+
+
+
+  <meta name="twitter:site" content="@creuden">
+  <meta name="twitter:title" content="Example: Setting up the Working Environment">
+  <meta name="twitter:description" content="Setting up a working or project environment requires the definition of different folder pathes and the loading of necessary R packages and additional functions. If additional software like GIS should also be accessible, respective binaries and software environments must be linked, too.For setting up a project environment, one can use a set-up script and the link2GI package.It is a good idea to name the setup script somethin like 000_setup.R and source it into every other script of the same project (i.e. include source(&lt;path-to-git-repository-folder&gt;/src/000_setup.R))Loading the librariesThe first section of the setup script handles the loading of all required libraries.# Set libraries ----------------------------------------------------------------libs = c(&quot;link2GI&quot;,         &quot;raster&quot;,         &quot;rgdal&quot;,         &quot;sp&quot;)lapply(libs, require, character.only = TRUE)Setting up the folder pathesThe next section of the setup-script handles the definition of folder pathes. One has to define the root directory of the project and all subdirectories (make sure you include the trailing “/”). This information is supplied to the link2GI::initProj() function. It returns a list of the folder names and creates the folders if they do not exist, yet. For more information have a look at the manual.# Set pathes -------------------------------------------------------------------# Automatically set root direcory depending on booted systemif(Sys.info()[&quot;sysname&quot;] == &quot;Windows&quot;){  filepath_base = &quot;C:/Users/tnauss/permanent/edu/mpg-envinsys-plygrnd&quot;} else {  filepath_base = &quot;/media/memory/permanent/edu/mpg-envinsys-plygrnd&quot;}# Set project specific subfoldersproject_folders = c(&quot;data/&quot;,                                 # data folders                    &quot;data/aerial/&quot;, &quot;data/lidar/&quot;, &quot;data/grass/&quot;,                     &quot;data/data_mof&quot;, &quot;data/tmp/&quot;,                     &quot;run/&quot;, &quot;log/&quot;,                          # bins and logging                    &quot;name_of_github_team_repository/src/&quot;,   # source code                    &quot;name_of_github_team_repository/doc/&quot;)   # markdown etc. envrmt = initProj(projRootDir = filepath_base, GRASSlocation = &quot;data/grass&quot;,                  projFolders = project_folders, path_prefix = &quot;path_&quot;,                   global = FALSE)One can now access the respecive sufolders using the list entries of the variable envrmt. The entries are named according to the subfolder names with the prefix “path_”.print(envrmt$path_data_tmp)## [1] &quot;C:/Users/tnauss/permanent/edu/mpg-envinsys-plygrnd/data/tmp/&quot;If the raster package has been loaded, it is a good choice to set the temp directory to the one of the just defined project environment.rasterOptions(tmpdir = envrmt$path_data_tmp)Linking GIS softwareIf required, on can now go on in the setup script and link selected GIS software. This generaly starts looking for the respective installations (in case one does not know all the details).# Link GIS software ------------------------------------------------------------# Find GRASS installationsgrass_path = findGRASS()# Find SAGA installationssaga_path = findSAGA()# Find OTB installationsotb_path = findOTB()More information on the link2GI package">
+  <meta name="twitter:url" content="http://localhost:4000/data/UNIMR/lm_data/lm_2092236/unit01/unit01-05_environment_setup.html">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2019-10-29T09:53:02+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/data/UNIMR/lm_data/lm_2092236/unit01/unit01-05_environment_setup.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/data/UNIMR/lm_data/lm_2092236/feed.xml" type="application/atom+xml" rel="alternate" title="Lab of Environmental Informatics Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/data/UNIMR/lm_data/lm_2092236/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+    	<a class="site-title" href="http://localhost:4000/data/UNIMR/lm_data/lm_2092236/" style="padding:0px"><img src="http://localhost:4000/data/UNIMR/lm_data/lm_2092236/assets/images/logo_umr.png" style="padding-right:15px">Lab of Environmental Informatics</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/data/UNIMR/lm_data/lm_2092236//units.html" >Course units</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/data/UNIMR/lm_data/lm_2092236//about.html" >About</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/data/UNIMR/lm_data/lm_2092236//index.html" >Course home</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="https://oer.uni-marburg.de/goto.php?target=cat_320&client_id=mriliasmooc" >OER home</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/data/UNIMR/lm_data/lm_2092236//sitemap.html" >Sitemap</a>
+            </li>
+          
+        </ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+  
+    
+      
+      
+      
+    
+    
+	  
+        <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+      
+      
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/data/UNIMR/lm_data/lm_2092236//unit01/unit01-01_gis_concept.html" class="">Spatial Modelling  Concepts</a>
+		  </span>
+          <ul>
+            
+              
+			  
+			    <li><a href="/data/UNIMR/lm_data/lm_2092236//unit01/unit01-01_gis_concept.html" class="">Geography as a spatial interpretation of the world</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/data/UNIMR/lm_data/lm_2092236//unit01/unit01-02_Discrete_and_continuous_objects_in_GI_systems.html" class="">Discrete and continuous objects in GI systems</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/data/UNIMR/lm_data/lm_2092236//unit01/unit01-03_what_about_gis_now.html" class="">What about GIS now?</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/data/UNIMR/lm_data/lm_2092236//unit01/unit01-04_notes_on_assignments.html" class="">Assignments and Working Environment</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/data/UNIMR/lm_data/lm_2092236//unit01/unit01-05_environment_setup.html" class="active">Example: Setting up the Working Environment</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/data/UNIMR/lm_data/lm_2092236//unit01/unit01-06_assignment.html" class="">Unmarked Assignment: Data Collection and Working Environment</a></li>
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  </ul>
+</nav>
+	  
+    
+  
+  </div>
+  
+
+
+
+
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Example: Setting up the Working Environment">
+    <meta itemprop="description" content="Setting up a working or project environment requires the definition of different folder pathes and the loading of necessary R packages and additional functions. If additional software like GIS should also be accessible, respective binaries and software environments must be linked, too.For setting up a project environment, one can use a set-up script and the link2GI package.It is a good idea to name the setup script somethin like 000_setup.R and source it into every other script of the same project (i.e. include source(&lt;path-to-git-repository-folder&gt;/src/000_setup.R))Loading the librariesThe first section of the setup script handles the loading of all required libraries.# Set libraries ----------------------------------------------------------------libs = c(&quot;link2GI&quot;,         &quot;raster&quot;,         &quot;rgdal&quot;,         &quot;sp&quot;)lapply(libs, require, character.only = TRUE)Setting up the folder pathesThe next section of the setup-script handles the definition of folder pathes. One has to define the root directory of the project and all subdirectories (make sure you include the trailing “/”). This information is supplied to the link2GI::initProj() function. It returns a list of the folder names and creates the folders if they do not exist, yet. For more information have a look at the manual.# Set pathes -------------------------------------------------------------------# Automatically set root direcory depending on booted systemif(Sys.info()[&quot;sysname&quot;] == &quot;Windows&quot;){  filepath_base = &quot;C:/Users/tnauss/permanent/edu/mpg-envinsys-plygrnd&quot;} else {  filepath_base = &quot;/media/memory/permanent/edu/mpg-envinsys-plygrnd&quot;}# Set project specific subfoldersproject_folders = c(&quot;data/&quot;,                                 # data folders                    &quot;data/aerial/&quot;, &quot;data/lidar/&quot;, &quot;data/grass/&quot;,                     &quot;data/data_mof&quot;, &quot;data/tmp/&quot;,                     &quot;run/&quot;, &quot;log/&quot;,                          # bins and logging                    &quot;name_of_github_team_repository/src/&quot;,   # source code                    &quot;name_of_github_team_repository/doc/&quot;)   # markdown etc. envrmt = initProj(projRootDir = filepath_base, GRASSlocation = &quot;data/grass&quot;,                  projFolders = project_folders, path_prefix = &quot;path_&quot;,                   global = FALSE)One can now access the respecive sufolders using the list entries of the variable envrmt. The entries are named according to the subfolder names with the prefix “path_”.print(envrmt$path_data_tmp)## [1] &quot;C:/Users/tnauss/permanent/edu/mpg-envinsys-plygrnd/data/tmp/&quot;If the raster package has been loaded, it is a good choice to set the temp directory to the one of the just defined project environment.rasterOptions(tmpdir = envrmt$path_data_tmp)Linking GIS softwareIf required, on can now go on in the setup script and link selected GIS software. This generaly starts looking for the respective installations (in case one does not know all the details).# Link GIS software ------------------------------------------------------------# Find GRASS installationsgrass_path = findGRASS()# Find SAGA installationssaga_path = findSAGA()# Find OTB installationsotb_path = findOTB()More information on the link2GI package">
+    <meta itemprop="datePublished" content="October 29, 2019">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Example: Setting up the Working Environment
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> In this example</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#loading-the-libraries">Loading the libraries</a></li>
+  <li><a href="#setting-up-the-folder-pathes">Setting up the folder pathes</a></li>
+  <li><a href="#linking-gis-software">Linking GIS software</a></li>
+  <li><a href="#more-information-on-the-link2gi-package">More information on the link2GI package</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p>Setting up a working or project environment requires the definition of different folder pathes and the loading of necessary R packages and additional functions. If additional software like GIS should also be accessible, respective binaries and software environments must be linked, too.</p>
+
+<p>For setting up a project environment, one can use a set-up script and the <code class="highlighter-rouge">link2GI</code> package.</p>
+
+<p>It is a good idea to name the setup script somethin like <code class="highlighter-rouge">000_setup.R</code> and source it into every other script of the same project (i.e. include <code class="highlighter-rouge">source(&lt;path-to-git-repository-folder&gt;/src/000_setup.R)</code>)</p>
+
+<h2 id="loading-the-libraries">Loading the libraries</h2>
+<p>The first section of the setup script handles the loading of all required libraries.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Set libraries ----------------------------------------------------------------</span><span class="w">
+</span><span class="n">libs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"link2GI"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"raster"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"rgdal"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"sp"</span><span class="p">)</span><span class="w">
+</span><span class="n">lapply</span><span class="p">(</span><span class="n">libs</span><span class="p">,</span><span class="w"> </span><span class="n">require</span><span class="p">,</span><span class="w"> </span><span class="n">character.only</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="setting-up-the-folder-pathes">Setting up the folder pathes</h2>
+<p>The next section of the setup-script handles the definition of folder pathes. One has to define the root directory of the project and all subdirectories (make sure you include the trailing “/”). This information is supplied to the <code class="highlighter-rouge">link2GI::initProj()</code> function. It returns a list of the folder names and creates the folders if they do not exist, yet. For more information have a look at the manual.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Set pathes -------------------------------------------------------------------</span><span class="w">
+</span><span class="c1"># Automatically set root direcory depending on booted system</span><span class="w">
+</span><span class="k">if</span><span class="p">(</span><span class="n">Sys.info</span><span class="p">()[</span><span class="s2">"sysname"</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Windows"</span><span class="p">){</span><span class="w">
+  </span><span class="n">filepath_base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"C:/Users/tnauss/permanent/edu/mpg-envinsys-plygrnd"</span><span class="w">
+</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="n">filepath_base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"/media/memory/permanent/edu/mpg-envinsys-plygrnd"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="c1"># Set project specific subfolders</span><span class="w">
+</span><span class="n">project_folders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"data/"</span><span class="p">,</span><span class="w">                                 </span><span class="c1"># data folders</span><span class="w">
+                    </span><span class="s2">"data/aerial/"</span><span class="p">,</span><span class="w"> </span><span class="s2">"data/lidar/"</span><span class="p">,</span><span class="w"> </span><span class="s2">"data/grass/"</span><span class="p">,</span><span class="w"> 
+                    </span><span class="s2">"data/data_mof"</span><span class="p">,</span><span class="w"> </span><span class="s2">"data/tmp/"</span><span class="p">,</span><span class="w"> 
+                    </span><span class="s2">"run/"</span><span class="p">,</span><span class="w"> </span><span class="s2">"log/"</span><span class="p">,</span><span class="w">                          </span><span class="c1"># bins and logging</span><span class="w">
+                    </span><span class="s2">"name_of_github_team_repository/src/"</span><span class="p">,</span><span class="w">   </span><span class="c1"># source code</span><span class="w">
+                    </span><span class="s2">"name_of_github_team_repository/doc/"</span><span class="p">)</span><span class="w">   </span><span class="c1"># markdown etc. </span><span class="w">
+
+</span><span class="n">envrmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">initProj</span><span class="p">(</span><span class="n">projRootDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">filepath_base</span><span class="p">,</span><span class="w"> </span><span class="n">GRASSlocation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"data/grass"</span><span class="p">,</span><span class="w">
+                  </span><span class="n">projFolders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">project_folders</span><span class="p">,</span><span class="w"> </span><span class="n">path_prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"path_"</span><span class="p">,</span><span class="w"> 
+                  </span><span class="n">global</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+<p>One can now access the respecive sufolders using the list entries of the variable <code class="highlighter-rouge">envrmt</code>. The entries are named according to the subfolder names with the prefix “path_”.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">print</span><span class="p">(</span><span class="n">envrmt</span><span class="o">$</span><span class="n">path_data_tmp</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## [1] "C:/Users/tnauss/permanent/edu/mpg-envinsys-plygrnd/data/tmp/"
+</code></pre></div></div>
+
+<p>If the <code class="highlighter-rouge">raster</code> package has been loaded, it is a good choice to set the temp directory to the one of the just defined project environment.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rasterOptions</span><span class="p">(</span><span class="n">tmpdir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">envrmt</span><span class="o">$</span><span class="n">path_data_tmp</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="linking-gis-software">Linking GIS software</h2>
+<p>If required, on can now go on in the setup script and link selected GIS software. This generaly starts looking for the respective installations (in case one does not know all the details).</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Link GIS software ------------------------------------------------------------</span><span class="w">
+</span><span class="c1"># Find GRASS installations</span><span class="w">
+</span><span class="n">grass_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findGRASS</span><span class="p">()</span><span class="w">
+
+</span><span class="c1"># Find SAGA installations</span><span class="w">
+</span><span class="n">saga_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findSAGA</span><span class="p">()</span><span class="w">
+
+</span><span class="c1"># Find OTB installations</span><span class="w">
+</span><span class="n">otb_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findOTB</span><span class="p">()</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="more-information-on-the-link2gi-package">More information on the link2GI package</h2>
+
+<div id="presentation-embed-38909962"></div>
+<script src="https://slideslive.com/embed_presentation.js"></script>
+
+<script>
+    embed = new SlidesLiveEmbed('presentation-embed-38909962', {
+        presentationId: '38909962',
+        autoPlay: false // change to true to autoplay the embedded presentation
+    });
+</script>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-10-29T09:53:02+01:00">October 29, 2019</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/data/UNIMR/lm_data/lm_2092236/unit01/unit01-04_notes_on_assignments.html" class="pagination--pager" title="Assignments and Working Environment
+">Previous</a>
+    
+    
+      <a href="/data/UNIMR/lm_data/lm_2092236/unit01/unit01-06_assignment.html" class="pagination--pager" title="Unmarked Assignment: Data Collection and Working Environment
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+    </div>
+
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+    
+      <li><a href="https://twitter.com/creuden"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="https://github.com/GeoMOER"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    
+    <li><a href="http://localhost:4000/data/UNIMR/lm_data/lm_2092236/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright"> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a> &copy; 2019 Lab of Environmental Informatics
+. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a>, <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a> &amp; <a href="https://www.uni-marburg.de/fb19" rel="nofollow">Geography@Marburg University</a>.</div>
+
+
+
+      </footer>
+    </div>
+
+    
+  <script src="/data/UNIMR/lm_data/lm_2092236/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

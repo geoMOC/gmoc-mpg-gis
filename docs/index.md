@@ -1,15 +1,15 @@
 ---
-title: GIS
+title: Geo Information Science
 layout: splash
 date: '2018-02-06 13:00:00 +0100'
 header:
   overlay_color: "#000"
   overlay_filter: 0.6
-  overlay_image: "/assets/images/remsens_title.jpg"
+  overlay_image: "/assets/images/gis_title.jpg"
   caption: 'Photo credit: [**Environmental Informatics Marburg**](https://www.flickr.com/environmentalinformatics-marburg/)'
   cta_label: Go to course units
   cta_url: "/units.html"
-excerpt: Fast - Easy - Good. Operationalisation and implementation of spatial analysis workflows.
+excerpt: Fast - Affordable - Good. Development and Operationalization of Spatial Analysis.
 feature_row_intro:
 - excerpt: Master level course in [Physical Geography](https://www.uni-marburg.de/fb19/studium/studiengaenge/msc-phygeo) at Marburg University
 feature_row_ilos:

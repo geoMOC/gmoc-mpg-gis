@@ -32,5 +32,6 @@ Discrete objects are characterized by a clear spatial delineation, while spatial
 
 
 
-### More Information
+### Further Reading
+
  * The core of GIScience pages 22-33 [Tolpekin & Stein 2012](http://www.charim.net/sites/default/files/handbook/datamanagement/3/3.3/The%20core%20of%20GIScience%2C%20a%20system%20-based%20approach.pdf){:target="_blank"}

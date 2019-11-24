@@ -22,8 +22,8 @@ url: "https://ilias.uni-marburg.de"
 baseurl: "/data/UNIMR/lm_data/lm_2092236/"
 
 # Serve on GitHub
-# url: https://marburg-open-courseware.github.io
-# baseurl: "/moer-msc-remote-sensing/"
+#url: https://geomoer.github.io/
+#baseurl: "/moer-mpg-gis/"
 
 ##### Title ###################################################################
 title: Lab of Environmental Informatics
@@ -142,7 +142,7 @@ defaults:
       path: ""
       type: unit02
     values:
-      category: "Unit 02"
+      category: "Asking Questions"
       tags: "Unit|02"
       layout: single
       sidebar:
@@ -152,7 +152,7 @@ defaults:
       path: ""
       type: unit03
     values:
-      category: "Unit 03"
+      category: "Project 1: Touching the tree"
       tags: "Unit|03"
       layout: single
       sidebar:
@@ -162,7 +162,7 @@ defaults:
       path: ""
       type: unit04
     values:
-      category: "Unit 04"
+      category: "Project 2: Competition and Biodiversity"
       tags: "Unit|04"
       layout: single
       sidebar:
@@ -172,7 +172,7 @@ defaults:
       path: ""
       type: unit05
     values:
-      category: "Unit 05"
+      category: "Spotlights"
       tags: "Unit|05"
       layout: single
       sidebar:

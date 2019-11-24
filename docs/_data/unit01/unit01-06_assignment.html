@@ -1,0 +1,388 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.13.0 by Michael Rose
+  Copyright 2013-2018 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Unmarked Assignment: Data Collection and Working Environment | Lab of Environmental Informatics</title>
+<meta name="description" content="This worksheet focuses on getting remote sensing data and its I/O in R.After completing this worksheet, you should have a structured working environment and be able to read and write raster geo-data in R.Things you need for this worksheet  R — the interpreter can be installed on any operation system.  RStudio — we recommend to use R Studio for (interactive) programming with R.  Git environment for your operating system. For Windows users with little experience on the command line we recommend GitHub Desktop.  Remote sensing data provided by the course instructors.Remote sensing data I/OPlease create the working environment for this course following the mandatory settings provided by the info on assignments.Download the aerial images required for this course using the link provided by the course instructors.Please write an R markdown script with html output which describes how to read and (very basically) visualize the provided aerial images in R.Save your Rmd file in your course repository, knitr it, update (i.e. commit) your local repository and publish (i.e. push) it to the GitHub classroom. Make sure that the created html file is also part of your GitHub repository.The R package raster is a good starting point for raster data I/O.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Lab of Environmental Informatics">
+<meta property="og:title" content="Unmarked Assignment: Data Collection and Working Environment">
+<meta property="og:url" content="http://localhost:4000/data/UNIMR/lm_data/lm_2092236/unit01/unit01-06_assignment.html">
+
+
+  <meta property="og:description" content="This worksheet focuses on getting remote sensing data and its I/O in R.After completing this worksheet, you should have a structured working environment and be able to read and write raster geo-data in R.Things you need for this worksheet  R — the interpreter can be installed on any operation system.  RStudio — we recommend to use R Studio for (interactive) programming with R.  Git environment for your operating system. For Windows users with little experience on the command line we recommend GitHub Desktop.  Remote sensing data provided by the course instructors.Remote sensing data I/OPlease create the working environment for this course following the mandatory settings provided by the info on assignments.Download the aerial images required for this course using the link provided by the course instructors.Please write an R markdown script with html output which describes how to read and (very basically) visualize the provided aerial images in R.Save your Rmd file in your course repository, knitr it, update (i.e. commit) your local repository and publish (i.e. push) it to the GitHub classroom. Make sure that the created html file is also part of your GitHub repository.The R package raster is a good starting point for raster data I/O.">
+
+
+
+
+
+  <meta name="twitter:site" content="@creuden">
+  <meta name="twitter:title" content="Unmarked Assignment: Data Collection and Working Environment">
+  <meta name="twitter:description" content="This worksheet focuses on getting remote sensing data and its I/O in R.After completing this worksheet, you should have a structured working environment and be able to read and write raster geo-data in R.Things you need for this worksheet  R — the interpreter can be installed on any operation system.  RStudio — we recommend to use R Studio for (interactive) programming with R.  Git environment for your operating system. For Windows users with little experience on the command line we recommend GitHub Desktop.  Remote sensing data provided by the course instructors.Remote sensing data I/OPlease create the working environment for this course following the mandatory settings provided by the info on assignments.Download the aerial images required for this course using the link provided by the course instructors.Please write an R markdown script with html output which describes how to read and (very basically) visualize the provided aerial images in R.Save your Rmd file in your course repository, knitr it, update (i.e. commit) your local repository and publish (i.e. push) it to the GitHub classroom. Make sure that the created html file is also part of your GitHub repository.The R package raster is a good starting point for raster data I/O.">
+  <meta name="twitter:url" content="http://localhost:4000/data/UNIMR/lm_data/lm_2092236/unit01/unit01-06_assignment.html">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2019-10-29T09:53:02+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/data/UNIMR/lm_data/lm_2092236/unit01/unit01-06_assignment.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/data/UNIMR/lm_data/lm_2092236/feed.xml" type="application/atom+xml" rel="alternate" title="Lab of Environmental Informatics Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/data/UNIMR/lm_data/lm_2092236/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+    	<a class="site-title" href="http://localhost:4000/data/UNIMR/lm_data/lm_2092236/" style="padding:0px"><img src="http://localhost:4000/data/UNIMR/lm_data/lm_2092236/assets/images/logo_umr.png" style="padding-right:15px">Lab of Environmental Informatics</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/data/UNIMR/lm_data/lm_2092236//units.html" >Course units</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/data/UNIMR/lm_data/lm_2092236//about.html" >About</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/data/UNIMR/lm_data/lm_2092236//index.html" >Course home</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="https://oer.uni-marburg.de/goto.php?target=cat_320&client_id=mriliasmooc" >OER home</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/data/UNIMR/lm_data/lm_2092236//sitemap.html" >Sitemap</a>
+            </li>
+          
+        </ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+  
+    
+      
+      
+      
+    
+    
+	  
+        <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+      
+      
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/data/UNIMR/lm_data/lm_2092236//unit01/unit01-01_gis_concept.html" class="">Spatial Modelling  Concepts</a>
+		  </span>
+          <ul>
+            
+              
+			  
+			    <li><a href="/data/UNIMR/lm_data/lm_2092236//unit01/unit01-01_gis_concept.html" class="">Geography as a spatial interpretation of the world</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/data/UNIMR/lm_data/lm_2092236//unit01/unit01-02_Discrete_and_continuous_objects_in_GI_systems.html" class="">Discrete and continuous objects in GI systems</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/data/UNIMR/lm_data/lm_2092236//unit01/unit01-03_what_about_gis_now.html" class="">What about GIS now?</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/data/UNIMR/lm_data/lm_2092236//unit01/unit01-04_notes_on_assignments.html" class="">Assignments and Working Environment</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/data/UNIMR/lm_data/lm_2092236//unit01/unit01-05_environment_setup.html" class="">Example: Setting up the Working Environment</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/data/UNIMR/lm_data/lm_2092236//unit01/unit01-06_assignment.html" class="active">Unmarked Assignment: Data Collection and Working Environment</a></li>
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  </ul>
+</nav>
+	  
+    
+  
+  </div>
+  
+
+
+
+
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Unmarked Assignment: Data Collection and Working Environment">
+    <meta itemprop="description" content="This worksheet focuses on getting remote sensing data and its I/O in R.After completing this worksheet, you should have a structured working environment and be able to read and write raster geo-data in R.Things you need for this worksheet  R — the interpreter can be installed on any operation system.  RStudio — we recommend to use R Studio for (interactive) programming with R.  Git environment for your operating system. For Windows users with little experience on the command line we recommend GitHub Desktop.  Remote sensing data provided by the course instructors.Remote sensing data I/OPlease create the working environment for this course following the mandatory settings provided by the info on assignments.Download the aerial images required for this course using the link provided by the course instructors.Please write an R markdown script with html output which describes how to read and (very basically) visualize the provided aerial images in R.Save your Rmd file in your course repository, knitr it, update (i.e. commit) your local repository and publish (i.e. push) it to the GitHub classroom. Make sure that the created html file is also part of your GitHub repository.The R package raster is a good starting point for raster data I/O.">
+    <meta itemprop="datePublished" content="October 29, 2019">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Unmarked Assignment: Data Collection and Working Environment
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> In this worksheet</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#things-you-need-for-this-worksheet">Things you need for this worksheet</a></li>
+  <li><a href="#remote-sensing-data-io">Remote sensing data I/O</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p>This worksheet focuses on getting remote sensing data and its I/O in R.</p>
+
+<p>After completing this worksheet, you should have a structured working environment and be able to read and write raster geo-data in R.</p>
+
+<h2 id="things-you-need-for-this-worksheet">Things you need for this worksheet</h2>
+<ul>
+  <li><a href="https://cran.r-project.org/" target="_blank">R</a> — the interpreter can be installed on any operation system.</li>
+  <li><a href="https://www.rstudio.com/" target="_blank">RStudio</a> — we recommend to use R Studio for (interactive) programming with R.</li>
+  <li><a href="https://git-scm.com/downloads" target="_blank">Git</a> environment for your operating system. For Windows users with little experience on the command line we recommend <a href="https://desktop.github.com/" target="_blank">GitHub Desktop</a>.</li>
+  <li>Remote sensing data provided by the course instructors.</li>
+</ul>
+
+<h2 id="remote-sensing-data-io">Remote sensing data I/O</h2>
+<p>Please create the working environment for this course following the mandatory settings provided by the <a href="/data/UNIMR/lm_data/lm_2092236//unit01/unit01-04_notes_on_assignments#mandatory-working-environment">info on assignments</a>.</p>
+
+<p>Download the aerial images required for this course using the link provided by the course instructors.</p>
+
+<p>Please write an R markdown script with html output which describes how to read and (very basically) visualize the provided aerial images in R.</p>
+
+<p>Save your Rmd file in your course repository, knitr it, update (i.e. commit) your local repository and publish (i.e. push) it to the GitHub classroom. Make sure that the created html file is also part of your GitHub repository.</p>
+
+<p class="notice--info">The R package <a href="https://cran.r-project.org/web/packages/raster/index.html" target="_blank"><em>raster</em></a> is a good starting point for raster data I/O.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-10-29T09:53:02+01:00">October 29, 2019</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/data/UNIMR/lm_data/lm_2092236/unit01/unit01-05_environment_setup.html" class="pagination--pager" title="Example: Setting up the Working Environment
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+    </div>
+
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+    
+      <li><a href="https://twitter.com/creuden"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="https://github.com/GeoMOER"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    
+    <li><a href="http://localhost:4000/data/UNIMR/lm_data/lm_2092236/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright"> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a> &copy; 2019 Lab of Environmental Informatics
+. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a>, <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a> &amp; <a href="https://www.uni-marburg.de/fb19" rel="nofollow">Geography@Marburg University</a>.</div>
+
+
+
+      </footer>
+    </div>
+
+    
+  <script src="/data/UNIMR/lm_data/lm_2092236/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

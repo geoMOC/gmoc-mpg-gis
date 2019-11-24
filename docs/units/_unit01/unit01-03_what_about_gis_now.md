@@ -36,8 +36,8 @@ However, this explicit spatial concept is not yet located in a defined Cartesian
 {% include figure image_path="/assets/images/unit01/02_raster_crs.png" alt="Raster data model reference systems" caption="Raster data model reference systems. Figure: CC0 via geocompr.robinlovelace.net" %}
 
 ## More Information
- * A more detailed information for raster data can be found at [Geocumpation with R - Raster data](https://geocompr.robinlovelace.net/spatial-class.html#raster-data){:target="_blank"}.
- * A more detailed information for vector data can be found at [Geocumpation with R - Vector data](https://geocompr.robinlovelace.net/spatial-class.html#vector-data){:target="_blank"}.
+ * A more detailed information for raster data can be found at [Geocomputation with R - Raster data](https://geocompr.robinlovelace.net/spatial-class.html#raster-data){:target="_blank"}.
+ * A more detailed information for vector data can be found at [Geocomputation with R - Vector data](https://geocompr.robinlovelace.net/spatial-class.html#vector-data){:target="_blank"}.
 
 
 
