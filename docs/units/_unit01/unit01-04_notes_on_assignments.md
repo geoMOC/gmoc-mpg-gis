@@ -16,7 +16,7 @@ To start with, get yourself a GitHub account if you have not one already and cre
 {: .notice--info}
 
 Aside from submitting assignments, you should use your team repository for everything related to this course which is a potential subject to version control, team collaboration and issue tracking.
-{: .notice--danger}
+{: .notice--success}
 
 
 
