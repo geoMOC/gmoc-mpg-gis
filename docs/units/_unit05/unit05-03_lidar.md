@@ -4,7 +4,7 @@ toc: true
 toc_label: In this example
 ---
 
-Light detection and ranging (LiDAR) observations are point clouds representing the returns of laser pulses reflected from objects, e.g. a tree canopy. Processing LiDAR (or optical point cloud) data generally  requires more computational resources than 2D optical observations. The spotlit provides both technical handling of LiDAR data as well as some helpful hints how to optimize the technical and conceptual workflow of prgramming, data handling and information gathering.
+Light detection and ranging (LiDAR) observations are point clouds representing the returns of laser pulses reflected from objects, e.g. a tree canopy. Processing LiDAR (or optical point cloud) data generally  requires more computational resources than 2D optical observations. The spotlit provides both technical handling of LiDAR data as well as some helpful hints how to optimize the technical and conceptual workflow of programming, data handling and information gathering.
 
 <!--more-->
 
@@ -72,7 +72,7 @@ For a deeper understanding please look at the [Spotlight Best practices in scrip
 
 
 
-After revisiting the tutorial is seems to be a good choice to follow the tutorial of the `lidR` developer that is [linked](https://github.com/Jean-Romain/lidR/wiki/Rasterizing-perfect-canopy-height-models){:target="_blank"} in the above tutorial. Why? because for the first Jean-Romain explains 6 ways how to create in a very simple approach a CHM, second to show up that it makes sense to read and third to loop back because it does not work with bigger files. Let us start with the new script structure.
+After revisiting the tutorial is seems to be a good choice to follow the tutorial of the `lidR` developer that is [linked](https://github.com/Jean-Romain/lidR/wiki/Rasterizing-perfect-canopy-height-models){:target="_blank"} in the above tutorial. Why? because for the first Jean-Romain Roussel explains 6 ways how to create in a very simple approach a CHM, second to show up that it makes sense to read and third to loop back because it does not work with bigger files. Let us start with the new script structure.
 
 
 ```r
@@ -170,9 +170,11 @@ The lidR package comes with a feature called catalog and a set of catalog functi
 
 If not already done [download](http://gofile.me/3Z8AJ/c6m5CfvWZ){:target="_blank"} the data for the target area to the `envrmt$path_lidar_org` folder. 
 
-Please note that dealing with `lidR` catalogs is pretty stressful for the memory adminstration of your rsession. So best practicese is to:
-1 clean the environment 
-1 restart your rsession
+Please note that dealing with `lidR` catalogs is pretty stressful for the memory administration of your rsession. So best practices is to:
+{: .notice--danger}
+* clean the environment 
+* restart your rsession
+{: .notice--success}
 
 This will help you to avoid frustrating situation like restarting your PC after hours of waiting...
 
@@ -209,11 +211,17 @@ source(file.path(envimaR::alternativeEnvi(root_folder = "~/edu/mpg-envinsys-plyg
 #---------------------
 
 
-##  area of interest (central MOF)
-cxl<-476174.
-cyb<-5631386.
-cxr<-478217. 
-cyt<-5632894.
+#  area of interest (central MOF)
+xmin<-476174.
+ymin<-5631386.
+xmax<-478217. 
+ymax<-5632894.
+
+# test area so called "sap flow halfmoon"
+xmin=477500.0
+ymin=5631730.0
+xmax=478350.0
+ymax=5632500.0
 
 ## define variables for the lidR catalog
 chunksize = 100
@@ -233,67 +241,59 @@ pal<-mapview::mapviewPalette("mapviewTopoColors")
 # Get all *.las files of a folder into a list
 las_files = list.files(envrmt$path_lidar_org, pattern = glob2rx("*.las"), full.names = TRUE)
 
-#------- set up the a FIRST lidR catalog 
+#---- if you run into memory shortages set up the a lidR catalog 
 # we need it for better handling poor available memory 
 # check on https://rdrr.io/cran/lidR/man/catalog.html
-mof_ctg = lidR::readLAScatalog(envrmt$path_lidar_org)
-sp::proj4string(mof_ctg) <- sp::CRS(proj4) 
-future::plan(multisession, workers = 2L)
-lidR::set_lidr_threads(4)
-lidR::opt_chunk_size(mof_ctg) = chunksize
-lidR::opt_chunk_buffer(mof_ctg) <- overlap
+
+# core_aoimof_ctg = lidR::readLAScatalog(envrmt$path_lidar_org)
+# sp::proj4string(core_aoimof_ctg) <- sp::CRS(proj4) 
+# future::plan(multisession, workers = 2L)
+# lidR::set_lidr_threads(4)
+# lidR::opt_chunk_size(core_aoimof_ctg) = chunksize
+# lidR::opt_chunk_buffer(core_aoimof_ctg) <- overlap
 
 
-#------- cut the original data to new extent 
+#---- If not cut the original data to new extent 
+# note if using the catalog exchange lidR::readLAS(las_files[1]) with core_aoimof_ctg
 # check on https://rdrr.io/cran/lidR/man/lasclip.html
-las_core_aoimof<- lidR::lasclipRectangle(mof_ctg, xleft = cxl, ybottom = cyb, xright = cxr, ytop = cyt)
+core_aoimof<- lidR::lasclipRectangle(lidR::readLAS(las_files[1]), xleft = xmin, ybottom = ymin, xright = xmax, ytop = ymax)
 
 #---- write the new dataset to the level0 folder and create a corresponding index file (lax)
-lidR::writeLAS(las_core_aoimof,file.path(envrmt$path_level0,"las_mof.las"))
+lidR::writeLAS(core_aoimof,file.path(envrmt$path_level0,"las_mof.las"))
 rlas::writelax(file.path(envrmt$path_level0, "las_mof.las"))
 
-#---- setting up a *NEW* lidR catalog for further processing 
+#---- setting up lidR catalog
 mof100_ctg <- lidR::readLAScatalog(envrmt$path_level0)
 sp::proj4string(mof100_ctg) <- sp::CRS(proj4)
 future::plan(multisession, workers = 2L)
 lidR::set_lidr_threads(4)
 lidR::opt_chunk_size(mof100_ctg) = chunksize
 lidR::opt_chunk_buffer(mof100_ctg) <- overlap
-lidR::opt_output_files(mof100_ctg) <- paste0(envrmt$path_ID,"/{ID}")
+lidR::opt_output_files(mof100_ctg) <- paste0(envrmt$path_normalized,"/{ID}_norm") # add output filname template
 
-#---- retile it
-# check on https://rdrr.io/cran/lidR/man/catalog_retile.html
-mof100_ctg = lidR::catalog_retile(mof100_ctg)
-
-# add correct projection (it is sometimes lost)
-sp::proj4string(mof100_ctg) <- sp::CRS(proj4)
-
-# save both catalogs to RDS FILES
-saveRDS(mof_ctg,file= file.path(envrmt$path_level1,"mof_ctg.rds"))
 saveRDS(mof100_ctg,file= file.path(envrmt$path_level1,"mof100_ctg.rds"))
-
-# re-read the RDS file
 mof<-readRDS(file.path(envrmt$path_level1,"mof100_ctg.rds"))
 
-#---- calculating chm
-# add output filname template
-lidR::opt_output_files(mof) <- paste0(envrmt$path_normalized,"/{ORIGINALFILENAME}_tinnormalized")
+#---- calculate chm following example 1 from the help
+# Remove the topography from a point cloud 
+dtm <- lidR::grid_terrain(mof, 1, lidR::kriging(k = 10L))
+mof_norm <- lidR::lasnormalize(mof, dtm)
 
-# Remove the topography from a point cloud using knnidw()
-mof_norm_tin = lidR::lasnormalize(las = mof, algorithm = tin())
-
-saveRDS(mof_norm_tin,file= file.path(envrmt$path_level1,"mof_norm_tin.rds"))
-mof_norm<-readRDS(file.path(envrmt$path_level1,"mof_norm_tin.rds"))
+saveRDS(mof_norm,file= file.path(envrmt$path_level1,"mof_norm_ctg.rds"))
+mof_norm<-readRDS(file.path(envrmt$path_level1,"mof_norm_ctg.rds"))
 
 
-#---- Creates a digital surface model (DSM) using pitfree()
+# Create a CHM based on the normalized data and a DSM by pitfree()
 # if the error  "filename exists; use overwrite=TRUE" occures navigate to the 
-# paste0(envrmt$path_normalized,"/{ORIGINALFILENAME}_normalized") fo
-chm_all = grid_canopy(mof_norm, 1.0, pitfree(c(0,2,5,10,15), c(0,1), subcircle = 0.2))
+# paste0(envrmt$path_normalized,"/{ID}_norm") and delete the tif files
+
+lidR::opt_output_files(mof_norm) <- paste0(envrmt$path_normalized,"/{ID}_chm") # add output filname template
+chm_all = grid_canopy(mof_norm, 1.0, dsmtin())
+
+#chm_all = grid_canopy(mof_norm_kri, 1.0, pitfree(c(0,2,5,10,15), c(0,1)))
 
 # write it to tiff
 raster::writeRaster(chm_all,file.path(envrmt$path_data_mof,"mof_chm_all.tif"),overwrite=TRUE) 
-
 
 # 4 - visualize 
 -------------------
@@ -303,43 +303,39 @@ raster::writeRaster(chm_all,file.path(envrmt$path_data_mof,"mof_chm_all.tif"),ov
 mapview::mapviewOptions(mapview.maxpixels = 1000*1000)
 
 ## visualize the catalogs
-mapview(mof_ctg ) + mapview(mof100_ctg, zcol= "Max.Z" )
+mapview(mof100_ctg) + mapview(mof_norm, zcol= "Max.Z" ),url="mof_sapflow_ctg.html"
 
 ## call mapview with some additional arguments
-mapshot(mapview(raster::raster(file.path(envrmt$path_data_mof,"mof_chm_all.tif")),
+mapview(raster::raster(file.path(envrmt$path_data_mof,"mof_chm_all.tif")),
          legend=TRUE, 
          layer.name = "canopy height model",
          col = pal(256),
-         alpha.regions = 0.65),url="chm_all_map.html")
+         alpha.regions = 0.65)
 
 
 
 ```
-### The visualisation of an operating lidR catalog action.
+### The visualization of an operating lidR catalog action.
 
-The `mof_ctg` catalog is shows the extent of the original las file as provided by the the data server. The vecor that is visualized is the resulting `lidR` catalog containing all extracted parameters. Same with the `mof100_ctg` herre you see the extracted maximum Altitude of each tile used for visualisation. Feel free to investigate the catalog parameters by clicking on the tiles.  
+The `mof_ctg` catalog is shows the extent of the original las file as provided by the the data server. The vector that is visualized is the resulting `lidR` catalog containing all extracted parameters. Same with the `mof100_ctg` here you see the extracted maximum Altitude of each tile used for visualization. Feel free to investigate the catalog parameters by clicking on the tiles.  
 
-{% include media url="/assets/misc/mof_lidr_catalog.html" alt="lidR catalog map." %}
+{% include media url="/assets/misc/mof_sapflow_ctg.html" alt="lidR catalog map." %}
 
 ### The whole clipped MOF area rendered to a canopy height model. 
 
-{% include  media url="/assets/misc/chm_all.html" alt="Canopy Height Model map." %}
-[Full screen version of the map]({{ site.baseurl }}/assets/misc/chm_all.html){:target="_blank"}
+{% include  media url="/assets/misc/mof_sapflow_chm.html" alt="Canopy Height Model map." %}
+[Full screen version of the map]({{ site.baseurl }}/assets/misc/mof_sapflow_chm.html){:target="_blank"}
 
 Assuming this script (or the script you have adapted) runs without any technical errors, the exciting part of the data preprocessing comes now:
 * which algorithms did I use and why? 
-* do the values make sense? 
-* which variables and whats the range of Values? 
-* why not? What correction options do I have? 
-* is the error due to the data or the algorithm or the script?
+* 45m high trees - does that make sense? 
+* if not why not? What happens and  correction options do I have? Is the error due to the data, the algorithms, the script or all together?
 
 ## Where to go?
 
-To answer the above questions we need a two folded approach. First we need to strip down the script to a *real* control script all functionality that is used more than once will be moved into functions. Second we need to find out what algorithm is most suitable and reliable to answer our questions. 
+To answer this questions we need a two folded approach. First we need technically to strip down the script to a *real* control script, all functionality that is used more than once will be moved into functions or other static scripts. Second in a more applied or scientific way we need to find out what algorithm is most suitable and reliable to answer our questions. 
 
-The spotlight [simple functions]({{ site.baseurl }}{% link _unit05/unit05-05_best_scripting.md %}){:target="_blank"} deals with the first task. It shows to strip this control file into useful functions. Remember all functions are stored in the folder `envrmt$path_src`. 
-
-The spotlight [validation strategies]({{ site.baseurl }}{% link _unit05/unit05-09_validation_strategies.md %}){:target="_blank"} deals with the second task.
-
-Now everything is prepared to dive into  [tree segmentation ]({{ site.baseurl }}{% link _unit05/unit05-07_segmentation_strategies.md %}){:target="_blank"}strategies.
+* The spotlight [simple functions]({{ site.baseurl }}{% link _unit05/unit05-05_best_scripting.md %}){:target="_blank"} deals with the first task. It shows to strip this control file into useful functions. Remember all functions are stored in the folder `envrmt$path_src`. 
+* The spotlight [validation strategies]({{ site.baseurl }}{% link _unit05/unit05-09_validation_strategies.md %}){:target="_blank"} deals with the second task.
+* Technically everything is prepared to dive into  [tree segmentation ]({{ site.baseurl }}{% link _unit05/unit05-07_segmentation_strategies.md %}){:target="_blank"}strategies.
 
