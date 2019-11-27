@@ -18,12 +18,12 @@
 
 ##### URL #####################################################################
 # Serve on OER
-#url: "https://ilias.uni-marburg.de"
-#baseurl: "/data/UNIMR/lm_data/lm_2092236/"
+url: "https://ilias.uni-marburg.de"
+baseurl: "/data/UNIMR/lm_data/lm_2092236/"
 
 # Serve on GitHub
-url: https://geomoer.github.io/
-baseurl: "/moer-mpg-gis/"
+#url: https://geomoer.github.io/
+#baseurl: "/moer-mpg-gis/"
 
 ##### Title ###################################################################
 title: Lab of Environmental Informatics
