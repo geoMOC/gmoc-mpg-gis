@@ -203,7 +203,7 @@ library("future")
 source(file.path(envimaR::alternativeEnvi(root_folder = "~/edu/mpg-envinsys-plygrnd",
                                           alt_env_id = "COMPUTERNAME",
                                           alt_env_value = "PCRZP",
-                                          alt_env_root_folder = "F:/BEN/edu"),
+                                          alt_env_root_folder = "F:/BEN/edu/mpg-envinsys-plygrnd"),
                  "src/mpg_course_basic_setup.R"))
 
 
@@ -245,14 +245,6 @@ las_files = list.files(envrmt$path_lidar_org, pattern = glob2rx("*.las"), full.n
 # we need it for better handling poor available memory 
 # check on https://rdrr.io/cran/lidR/man/catalog.html
 
-# core_aoimof_ctg = lidR::readLAScatalog(envrmt$path_lidar_org)
-# sp::proj4string(core_aoimof_ctg) <- sp::CRS(proj4) 
-# future::plan(multisession, workers = 2L)
-# lidR::set_lidr_threads(4)
-# lidR::opt_chunk_size(core_aoimof_ctg) = chunksize
-# lidR::opt_chunk_buffer(core_aoimof_ctg) <- overlap
-
-
 #---- If not cut the original data to new extent 
 # note if using the catalog exchange lidR::readLAS(las_files[1]) with core_aoimof_ctg
 # check on https://rdrr.io/cran/lidR/man/lasclip.html
@@ -271,26 +263,25 @@ lidR::opt_chunk_size(mof100_ctg) = chunksize
 lidR::opt_chunk_buffer(mof100_ctg) <- overlap
 lidR::opt_output_files(mof100_ctg) <- paste0(envrmt$path_normalized,"/{ID}_norm") # add output filname template
 
-saveRDS(mof100_ctg,file= file.path(envrmt$path_level1,"mof100_ctg.rds"))
-mof<-readRDS(file.path(envrmt$path_level1,"mof100_ctg.rds"))
-
 #---- calculate chm following example 1 from the help
 # Remove the topography from a point cloud 
-dtm <- lidR::grid_terrain(mof, 1, lidR::kriging(k = 10L))
-mof_norm <- lidR::lasnormalize(mof, dtm)
+dtm <- lidR::grid_terrain(mof100_ctg, 1, lidR::kriging(k = 10L))
+mof100_ctg_norm <- lidR::lasnormalize(mof100_ctg, dtm)
 
-saveRDS(mof_norm,file= file.path(envrmt$path_level1,"mof_norm_ctg.rds"))
-mof_norm<-readRDS(file.path(envrmt$path_level1,"mof_norm_ctg.rds"))
+# if you want to save this catalog  an reread it  you need to uncomment the following lines
+# saveRDS(mof100_ctg_norm,file= file.path(envrmt$path_level1,"mof100_ctg_norm.rds"))
+# mof100_ctg_norm<-readRDS(file.path(envrmt$path_level1,"mof100_ctg_norm.rds"))
 
 
 # Create a CHM based on the normalized data and a DSM by pitfree()
 # if the error  "filename exists; use overwrite=TRUE" occures navigate to the 
 # paste0(envrmt$path_normalized,"/{ID}_norm") and delete the tif files
 
-lidR::opt_output_files(mof_norm) <- paste0(envrmt$path_normalized,"/{ID}_chm") # add output filname template
-chm_all = grid_canopy(mof_norm, 1.0, dsmtin())
+lidR::opt_output_files(mof100_ctg_norm) <- paste0(envrmt$path_normalized,"/{ID}_chm") # add output filname template
+chm_all = grid_canopy(mof100_ctg_norm, 1.0, dsmtin())
 
-#chm_all = grid_canopy(mof_norm_kri, 1.0, pitfree(c(0,2,5,10,15), c(0,1)))
+# alternative using pitfree
+#chm_all = grid_canopy(mof100_ctg_norm_kri, 1.0, pitfree(c(0,2,5,10,15), c(0,1)))
 
 # write it to tiff
 raster::writeRaster(chm_all,file.path(envrmt$path_data_mof,"mof_chm_all.tif"),overwrite=TRUE) 
@@ -299,11 +290,9 @@ raster::writeRaster(chm_all,file.path(envrmt$path_data_mof,"mof_chm_all.tif"),ov
 -------------------
 
 ## set mapview raster options to full resolution
-## check on https://r-spatial.github.io/mapview/
-mapview::mapviewOptions(mapview.maxpixels = 1000*1000)
 
 ## visualize the catalogs
-mapview(mof100_ctg) + mapview(mof_norm, zcol= "Max.Z" ),url="mof_sapflow_ctg.html"
+mapview(mof100_ctg) + mapview(mof_norm, zcol= "Max.Z" )
 
 ## call mapview with some additional arguments
 mapview(raster::raster(file.path(envrmt$path_data_mof,"mof_chm_all.tif")),
