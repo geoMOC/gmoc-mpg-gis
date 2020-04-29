@@ -34,7 +34,7 @@ At the end of this course you should be able
 * to design workflows suitable to solve common spatio temporal data-related issues
 * to deploy your workflows using geo-information science tools, R scripts and collaborative code management platforms for task management and issue tracking
 * to critically evaluate your spatiao-temporal analysis
-* to communicate your workflow and analysis results,
+* to communicate your workflow and analysis results
 
 
 
