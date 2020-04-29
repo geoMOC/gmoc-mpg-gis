@@ -262,6 +262,7 @@ lidR::set_lidr_threads(4)
 lidR::opt_chunk_size(mof100_ctg) = chunksize
 lidR::opt_chunk_buffer(mof100_ctg) <- overlap
 lidR::opt_output_files(mof100_ctg) <- paste0(envrmt$path_normalized,"/{ID}_norm") # add output filname template
+mof100_ctg@output_options$drivers$Raster$param$overwrite <- TRUE
 
 #---- calculate chm following example 1 from the help
 # Remove the topography from a point cloud 
