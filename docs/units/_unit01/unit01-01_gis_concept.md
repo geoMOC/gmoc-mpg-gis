@@ -39,6 +39,7 @@ Reproducibility is a key aspect of scientific research because it provides full 
 ## Further Reading 
 
 ### Forest related stuff 
+ * [Rio et al 2015 Forest structures](http://waldwachstum.wzw.tum.de/fileadmin/publications/2015_del.Rio_etal_Characterization_of.pdf)
  * The basic ideas of forest structures [Hashimoto et al. 2004](https://www.scirp.org/(S(czeh2tfqyw2orz553k1w0r45))/reference/ReferencesPapers.aspx?ReferenceID=493763){:target="_blank"}
  * Canopy height based crown delineation basics [Barnes et al. 2017](http://dx.doi.org/10.3390/rs9030231){:target="_blank"}{:target="_blank"}
  * A Comparison - Delineating Individual Trees from Lidar Data [Jakubowski et al. 2013](https://www.mdpi.com/2072-4292/5/9/4163)
