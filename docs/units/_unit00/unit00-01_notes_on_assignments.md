@@ -4,10 +4,10 @@ toc: true
 toc_label: In this info
 ---
 
-## A note on team learning log assignments with GitHub
+
 
 Within this course, you will work in teams and hence you will submit your team's solutions for the course assignments to your team's GitHub-hosted learning log, i.e. your team's personal classroom repository. Don't get confused about "your team's personal repository". Once you have a GitHub account, you can create as many (team) repositories as you like at your account and invite any team members you want but for assignments within our courses, always use your respective team classroom repository. 
-
+<!--more-->
 The classroom repository will be created automatically by following a link to the respective classroom assignment which will be provided by the instructors. Your team's classroom repository will be hosted as part of GeoMOER, our learning log space at GitHub for Marburg Open Educational Resources.
 
 If not stated otherwise, the deadline for an assignment is the date and time of the next course session. The submissions generally encompass R or R markdown with compiled html files or presentations in PDF format.

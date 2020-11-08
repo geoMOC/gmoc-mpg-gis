@@ -23,7 +23,6 @@
 
 
 # Serve on GitHub
-#
 url: https://geomoer.github.io/
 baseurl: "/moer-mpg-gis/"
 
@@ -96,6 +95,9 @@ collections:
   examples:
     output: true
     permalink: /:collection/:title.html
+  unit00:
+    output: true
+    permalink: /:collection/:title.html    
   unit01:
     output: true
     permalink: /:collection/:title.html
@@ -111,7 +113,7 @@ collections:
   unit05:
     output: true
     permalink: /:collection/:title.html
-  worksheets:
+  spotlight:
     output: true
     permalink: /:collection/:title.html
 
@@ -130,9 +132,22 @@ defaults:
   # unit01
   - scope:
       path: ""
+      type: unit00
+    values:
+      category: "Some Formalities"
+      tags: "Unit|01"
+      layout: single
+      sidebar:
+        nav: "units" 
+      toc: true
+      toc_label: On this page      
+        
+  # unit01
+  - scope:
+      path: ""
       type: unit01
     values:
-      category: "Spatial Modelling  Concepts"
+      category: "Questions & Answers"
       tags: "Unit|01"
       layout: single
       sidebar:
@@ -144,7 +159,7 @@ defaults:
       path: ""
       type: unit02
     values:
-      category: "Asking Questions"
+      category: "Spatial Modelling  Concepts"
       tags: "Unit|02"
       layout: single
       sidebar:
