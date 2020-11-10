@@ -6,14 +6,21 @@ toc_label: In this worksheet
 
 
 ## Why using R instead of QGIS et al.?
-Why we are using the R environment and why we are not using one of the other powerful scripting languages as Python, Perl or Ruby? It is definitely  hard, if not impossible, to give an concluding answer. 
+Why we are using the R environment and why we are not using one (ore all) of the other powerful scripting languages as Python, Perl or Ruby? It is definitely hard, if not impossible, to give an concluding answer. 
 
-For beginners R seems at the moment both easy to learn and a very powerful tool to handle analyze and visualize a wide range of (geo)data. This integrates not only a wide range of GIS libraries and APIs as well as an increasing number of specialized packages. Additionally it offers a very flexible and advanced approach to perform (geo)statistics and modeling. Furthermore for advanced users it is easy to mix R with C++ and arbitrary other scripting languages. 
+ The analysis of geographical information is a growing part of the decision-making process for politicians, scientists and last but not least business people. GIS users are adding problem-solving methods and data-centric research approaches to geography, further developing the possibilities of spatial analysis. Against this background, intensive debates about reliability, reproducibility and scientific transparency are developing.
+ 
+ Especially with complex data-driven solutions, traceability and transparency is only possible by providing data and methods in a reproducible form, e.g. a script language
+ 
+ To make it as easy as possible **and** as powerful as necessary we will focus on R as the **one for all** scripting language and we think that we have not backed the wrong horse.
 
-To make it as easy as possible **and** as powerful as necessary we will focus on R as the **one for all** scripting language and we think that we have not backed the wrong horse.
+
+For beginners R seems at the moment both easy to learn and a very powerful tool to handle, analyze and visualize a wide range of (geo)data. This integrates not only a wide range of GIS libraries and APIs as well as an increasing number of specialized packages. Additionally it offers a very flexible and advanced approach to perform (geo)statistics and modeling. Furthermore for advanced users it is easy to mix R with command line calls, C++ and arbitrary other scripting languages. 
+
 
 ## IDE and OS 
-If not already done we need now to organize our future workspace and project. First setup your preferred environment that you appreciate and feel comfortable with. For R there are a lot of R specific Integrated Development Environments (IDE) around ([Rstudio](http://www.rstudio.com/), [Statistiklabor](http://www.statistiklabor.de), [JGR](http://www.rforge.net/JGR), [RKWard](http://rkward.sourceforge.net/wiki/Main_Page/RKWard)). Which one you prefer is owed to personal flavor but we strongly recommend RStudio. [[courses:msc:msc-phygeo-data-analysis:lecture-notes:da-ln-01|Using RStudio]] you have all in one. A comfortable editor, perfect integration of the command line, integrated previews, version control, automatic generating documentation, debugger, help and so on. Overall seen pretty nice. 
+
+If not already done we need now to organize our future workspace and project. First setup your preferred environment that you appreciate and feel comfortable with. For R there are a lot of R specific Integrated Development Environments (IDE) around ([Rstudio](http://www.rstudio.com/), [Statistiklabor](http://www.statistiklabor.de), [JGR](http://www.rforge.net/JGR), [RKWard](http://rkward.sourceforge.net/wiki/Main_Page/RKWard)). Which one you prefer is owed to personal flavor but we strongly recommend RStudio. courses:msc:msc-phygeo-data-analysis:lecture-notes:da-ln-01 Using RStudio you have all in one. A comfortable editor, perfect integration of the command line, integrated previews, version control, automatic generating documentation, debugger, help and so on. Overall seen pretty nice. 
 
 There are some problems around the automatic installation with the [osgeo4w64](http://trac.osgeo.org/osgeo4w) installer for Windows. Up to a certain point it depends on the Windows version you are using and what software you have already installed. Furthermore you need administration privileges to make some changes in the environment settings. As you know this is not possible at university labs. 
 
