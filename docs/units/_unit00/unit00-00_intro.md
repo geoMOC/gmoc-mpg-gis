@@ -1,6 +1,7 @@
 ---
 title: Digital learning at a distance
 toc: true
+toc_label: In this example
 ---
 
 We offer weekly input with a new course unit. Depending on the topic, we start this with live streaming, a web conference, videos, texts or other materials. After the input, the exercises are presented, which should be worked on to successfully complete the project. Open questions can be asked at any time during the course or via email. All questions will be discussed in a screencast or online (FAQ). 
@@ -14,7 +15,7 @@ The course schedule provides for a three-hour block on Tuesdays. These events ca
 
 Every Tuesday we start with a new course unit. For these you will find new learning materials and new spotlights on this website. These can be videos, texts, references to literature etc. You have until 01.03.2021 to complete the project task.
 
-Apart from the deadlines, you are free to organize your learning and work on the tasks. You can find further information about the exam [here]({{ site.baseurl }}{% link _unit00/unit00-03_assignments.md %}))
+Apart from the deadlines, you are free to organize your learning and work on the tasks. You can find further information about the exam [here]({{ site.baseurl }}{% link _unit00/unit00-01_notes_on_assignments.md %}))
 
 
 ## Learning with Web Conferences
