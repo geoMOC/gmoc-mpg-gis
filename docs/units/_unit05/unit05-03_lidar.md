@@ -291,12 +291,12 @@ chm_all = grid_canopy(mof100_ctg_norm, 1.0, dsmtin())
 raster::writeRaster(chm_all,file.path(envrmt$path_data_mof,"mof_chm_all.tif"),overwrite=TRUE) 
 
 # 4 - visualize 
--------------------
+# -------------------
 
 ## set mapview raster options to full resolution
 
 ## visualize the catalogs
-mapview(mof100_ctg) + mapview(mof_norm, zcol= "Max.Z" )
+# mapview(mof100_ctg) + mapview(mof_norm, zcol= "Max.Z" )
 
 ## call mapview with some additional arguments
 mapview(raster::raster(file.path(envrmt$path_data_mof,"mof_chm_all.tif")),
