@@ -74,7 +74,7 @@ Provided I want to create a project with the obligatory folder structure defined
 
 ```r
 # list of packages to load
-packagesToLoad = c("lidR", "link2GI", "mapview", "raster", "rgdal", "rlas", "sp", "uavRst")
+packagesToLoad = c("lidR", "link2GI", "mapview", "raster", "rgdal", "rlas", "sp", "sf")
 
 # Automatically set root direcory, folder structure and load libraries
 envrmt = envimaR::createEnvi(root_folder = rootDir,
@@ -124,7 +124,7 @@ devtools::install_github("envima/envimaR")
 devtools::install_github("gisma/uavRst")
 devtools::install_github("r-spatial/link2GI")
 
-packagesToLoad = c("lidR", "link2GI", "mapview", "raster", "rgdal", "rlas", "sp", "uavRst", "sf")
+packagesToLoad = c("lidR", "link2GI", "mapview", "raster", "rgdal", "rlas", "sp", "sf")
 
 # Source setup script
 require(envimaR)
@@ -148,7 +148,7 @@ projectDirList   = c("data/",                # data folders the following are ob
                     "data/tmp/",
                     "run/",                # folder for runtime data storage
                     "log/",                # logging
-                    "src/",                # source code
+                    "src/",                # source code (generally used scripts)
                     "doc/")                # documentation markdown etc.
 
 # Automatically set root direcory, folder structure and load libraries
@@ -163,7 +163,7 @@ envrmt = envimaR::createEnvi(root_folder = rootDir,
 raster::rasterOptions(tmpdir = envrmt$path_tmp)
 ```
 
-Please check the result by navigating to the directory using your favorite file manger. In addition please check the returned list. It contains all paths as character strings in a convenient  list structure
+Please **check** the result by navigating to the directory using your favorite file manger. In addition please check the returned list. It contains all paths as character strings in a convenient  list structure
 
 ```r
 # traditionally
@@ -186,8 +186,7 @@ source(file.path(envimaR::alternativeEnvi(root_folder = "~/edu/mpg-envinsys-plyg
 
 The script thus available provides as intended:
 
-- a folder structure for the needed data 
-- folder structure for scripts
+- a basic folder structure for data storage and processing and doc
 - a list variable containing all paths 
 - folder for documentation
 

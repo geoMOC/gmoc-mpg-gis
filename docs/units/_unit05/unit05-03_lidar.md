@@ -53,7 +53,9 @@ If this works, you're good to go.
 
 ## Creating a Canopy Height Model (CHM) Part 1
 
-For training purposes (i.e. installing of missing packages, adapting of external scripts to our needs etc.) please switch over to the online tutorial [Building a CHM from LiDAR Data](https://github.com/gisma/uavRst/wiki/Building-a-Canopy-Height-Model-(CHM)-using-lidR){:target="_blank"}.
+For training purposes (i.e. installing of missing packages, adapting of external scripts to our needs etc.) you may switch over to the online tutorial [Building a CHM from LiDAR Data](https://github.com/gisma/uavRst/wiki/Building-a-Canopy-Height-Model-(CHM)-using-lidR){:target="_blank"}. 
+
+Please note that the `uavRst` package is depreceated so for ´lidR´ catalog and other operation you have to switch over to the original script on this web page.
 
 Please follow the tutorial risk a click on the linked content and consider the following points:
 
@@ -238,22 +240,23 @@ pal<-mapview::mapviewPalette("mapviewTopoColors")
 # 3 - start code 
 #-----------------
 
-# Get all *.las files of a folder into a list
+# Get all *.las files of a the folder you have specified to contain the original las files
 las_files = list.files(envrmt$path_lidar_org, pattern = glob2rx("*.las"), full.names = TRUE)
 
 #---- if you run into memory shortages set up the a lidR catalog 
 # we need it for better handling poor available memory 
-# check on https://rdrr.io/cran/lidR/man/catalog.html
 
-#---- If not cut the original data to new extent 
-# note if using the catalog exchange lidR::readLAS(las_files[1]) with core_aoimof_ctg
+
+#---- NOTE OTIONALLY you can cut the original big data set  to the smaller extent of the MOF
+#-----NOTE if using the catalog change lidR::readLAS(las_files[1]) to core_aoimof_ctg
 # check on https://rdrr.io/cran/lidR/man/lasclip.html
 core_aoimof<- lidR::lasclipRectangle(lidR::readLAS(las_files[1]), xleft = xmin, ybottom = ymin, xright = xmax, ytop = ymax)
 
 #---- write the new dataset to the level0 folder and create a corresponding index file (lax)
 lidR::writeLAS(core_aoimof,file.path(envrmt$path_level0,"las_mof.las"))
 rlas::writelax(file.path(envrmt$path_level0, "las_mof.las"))
-
+#-----OPTIONAL section finished
+#---- We assume that you have the "las_mof.las" file in the folder that is stored in envrmt$path_level0 
 #---- setting up lidR catalog
 mof100_ctg <- lidR::readLAScatalog(envrmt$path_level0)
 sp::proj4string(mof100_ctg) <- sp::CRS(proj4)
