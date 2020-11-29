@@ -28,7 +28,7 @@ However all solution can be linked to R (we did it over the years) the `lidr` pa
 
 For this first example we take a typical situation:
 * we have no idea about the software and possible solutions
-* we have no idea about the whole "kosmos" LiDAR data processing
+* we have no idea about LiDAR data processing and analysis
 * we just google to _LiDAR lidR tutorial chm_
 
 Among the top ten is [Building a Canopy Height Model-(CHM) using lidR](https://github.com/gisma/uavRst/wiki/Building-a-Canopy-Height-Model-(CHM)-using-lidR). So let's follow the white rabbit...
