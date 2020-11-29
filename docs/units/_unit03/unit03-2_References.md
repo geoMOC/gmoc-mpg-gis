@@ -14,17 +14,15 @@ The references of the course
 ## Further Reading 
 
 ### Forest related stuff 
+ * [Rio et al 2015 Forest structures](http://waldwachstum.wzw.tum.de/fileadmin/publications/2015_del.Rio_etal_Characterization_of.pdf)
+### Forest related stuff 
  * The basic ideas of forest structures [Hashimoto et al. 2004](https://www.scirp.org/(S(czeh2tfqyw2orz553k1w0r45))/reference/ReferencesPapers.aspx?ReferenceID=493763){:target="_blank"}
  * Canopy height based crown delineation basics [Barnes et al. 2017](http://dx.doi.org/10.3390/rs9030231){:target="_blank"}{:target="_blank"}
  * A Comparison - Delineating Individual Trees from Lidar Data [Jakubowski et al. 2013](https://www.mdpi.com/2072-4292/5/9/4163)
  
+
  
-### Textbooks
- * The core of GIScience [Tolpekin & Stein 2012](https://research.utwente.nl/en/publications/the-core-of-giscience-a-systems-based-approach){:target="_blank"}, [Download](ftp://ftp.itc.nl/pub/ders/CoreBook2014_metadata.pdf){:target="_blank"} 
- * **HIGHLY Recommended**  Geocomputation with R [Lovelace, Nowosad & Muenchow 2018](https://geocompr.robinlovelace.net/){:target="_blank"}
- 
- 
-### Science related
+## Scientific Reading and Writing shorties
 
 * [Critical Reading](https://writingcenter.gmu.edu/guides/critical-reading)
 * [How to write a Research Question](https://writingcenter.gmu.edu/guides/how-to-write-a-research-question)
@@ -43,5 +41,11 @@ The references of the course
   * [USGS](https://owi.usgs.gov/blog/intro-best-practices/){:target="_blank"} best practices introduction
   * [workflowR](https://jdblischak.github.io/workflowr/){:target="_blank"}
   * [usethis](https://usethis.r-lib.org/){:target="_blank"} 
+
+### Software Tutorials and GI textbooks
+ * The core of GIScience [Tolpekin & Stein 2012](https://research.utwente.nl/en/publications/the-core-of-giscience-a-systems-based-approach){:target="_blank"}, [Download](ftp://ftp.itc.nl/pub/ders/CoreBook2014_metadata.pdf){:target="_blank"} 
+ * **HIGHLY Recommended**  Geocomputation with R [Lovelace, Nowosad & Muenchow 2018](https://geocompr.robinlovelace.net/){:target="_blank"}
+ 
+
 
   

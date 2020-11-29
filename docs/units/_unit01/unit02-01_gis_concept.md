@@ -25,26 +25,6 @@ Geographic or spatial representations are the basis for a scientific interpretat
 ## Limitation of world representations 
 Despite these enormous limitations, representations of space are permanently and urgently needed in order to document, analyze and communicate comprehensible spatial information. Often several or variable representations are necessary to represent the reality with sufficient accuracy. If you want to acquire spatial competence, you must consider all the aspects mentioned, and not just the software-specific ones. In the our field of geography, GIS is a combination of methods that make spatio-temporal relationships comprehensible and reproducible.
 
-## Reproducibility and transparency
-
-Reproducibility is a key aspect of scientific research because it provides full transparency and credibility of science research process. [Nüst et al.2018](https://dx.doi.org/10.7717%2Fpeerj.5072){:target="_blank"}. Even more focussing on Geography and participation of an broader audience it is evident to generate a high base level of best practicse knowledge to generate information about Earth processes using remote sensing and Earth data as stored in Geographical Information Systems. This is even more compelling considering the ever-evolving possibilities but also traps and problems of data analysis and interpretation [Shannon & Walker](https://doi.org/10.1080/13658816.2018.1464167){:target="_blank"}.
 
 
-## Aims of the Unit
 
-  * Brief summarize of the basic concepts of space, representing of real objects, data and locating them with respect to GIS and geoinformatics
-  
-
-
-## Further Reading 
-
-### Forest related stuff 
- * [Rio et al 2015 Forest structures](http://waldwachstum.wzw.tum.de/fileadmin/publications/2015_del.Rio_etal_Characterization_of.pdf)
- * The basic ideas of forest structures [Hashimoto et al. 2004](https://www.scirp.org/(S(czeh2tfqyw2orz553k1w0r45))/reference/ReferencesPapers.aspx?ReferenceID=493763){:target="_blank"}
- * Canopy height based crown delineation basics [Barnes et al. 2017](http://dx.doi.org/10.3390/rs9030231){:target="_blank"}{:target="_blank"}
- * A Comparison - Delineating Individual Trees from Lidar Data [Jakubowski et al. 2013](https://www.mdpi.com/2072-4292/5/9/4163)
- 
- 
-### Textbooks
- * The core of GIScience [Tolpekin & Stein 2012](https://research.utwente.nl/en/publications/the-core-of-giscience-a-systems-based-approach){:target="_blank"}, [Download](ftp://ftp.itc.nl/pub/ders/CoreBook2014_metadata.pdf){:target="_blank"} 
- * **HIGHLY Recommended**  Geocomputation with R [Lovelace, Nowosad & Muenchow 2018](https://geocompr.robinlovelace.net/){:target="_blank"}

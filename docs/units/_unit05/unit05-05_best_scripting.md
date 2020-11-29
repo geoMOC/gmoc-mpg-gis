@@ -1,64 +1,9 @@
 ---
-title: "Best Practice Scripts & Functions in R"
+title: "Splitting up the LiDAR control file"
 toc: true
 toc_label: In this example
 ---
 
-Opinions differ widely on how best to organize the programming workflow in general and the development of scripts and functions in particular. The probably supreme rule is to remain consistent in the naming of functions, variables, etc.. You will see in the example scripts that this is not as easy as it looks like...
-
-In order not to overstretch the arch, the following sources are worthwhile a visit - complexity is ascending...<!--more-->
-- [r-bloggers](https://www.r-bloggers.com/r-code-best-practices/){:target="_blank"} best practices introduction
-- [Efficient R programming](https://csgillespie.github.io/efficientR/coding-style.html){:target="_blank"} Coding style
-- [USGS](https://owi.usgs.gov/blog/intro-best-practices/){:target="_blank"} best practices introduction
-
-
-For the beginning it is a recommendation to start a script with a header that includes information about script type  author, scripts purpose, inputs and outputs if appropriate used/usable data and legal stuff. In addition it is very helpful to keep inline with a structure that addresses your workflow. That means something like a fixed structure loading packages, sourcing files, defining variables and so on.
-
-A basic first corpus may look like below. Please note just write meaningful stuff into the header it is not a punishment but for clarification. 
-
-
-```r
-# ===============================================================================
-# xyz.R
-# Author: Chris Reudenbach, creuden@gmail.com
-# Copyright: Chris Reudenbach, Thomas Nauss 2017,2018,2019, GPL (>= 3)
-#
-# Description:  script creates a canopy height model CHM from generic LiDAR 
-#               las data sets using the lidR package
-#
-# Input:       Airborne LiDAR (ALS) data set from the Hessian Authorithy
-#
-# Output:      Canopy Height Model as a raster file
-#
-# Remarks:  BLABLA
-# ===============================================================================
-
-
-# 0 - load packages
-#---------------------
-
-
-# 1 - source files
-#---------------------
-
-
-# 2 - define variables
-#---------------------
-
-
-# 3 - start code 
-#--------------------
-
-
-```
-
-## Introduction to functions
-
-The use of function is imperative and ubiquitous the sooner you start the better. The principle is simple: Identify processes that are performed more than once and pack them into your own independent script:
-
-Have a look at the [R function](https://swcarpentry.github.io/r-novice-inflammation/02-func-R/) exercises.
-
-## Splitting up the LiDAR control file
 
 At the moment there are no major advantages to using functions. This is due to the fact that we have just created a batch file where more or less linear external functions (e.g. those of the lidR package) are processed.
 Allerdigns batch or control file already starts to get confusing. Therefore, it is helpful to separate individual functionalities. E.g. the preprocessing of the data up to the catalog. On this basis the later analyses should take place. Therefore, this part of our control file does not have to be run through again and again. Even if it is not a very good example for a function it would be convenient to just call the cutting algorithm with the data file, the cutting coordinates and the environment variables.

@@ -13,7 +13,7 @@ Light detection and ranging (LiDAR) observations are point clouds representing t
 
 For this example, the lidR package will be used. Extensive documentation and workflow examples can be found in the Wiki of the respective [GitHub repository](https://github.com/Jean-Romain/lidR). Other software options include e.g. [GRASS GIS](http://grasswiki.osgeo.org/wiki/LIDAR) or [ArcGIS](https://desktop.arcgis.com/en/arcmap/10.3/manage-data/las-dataset/a-quick-tour-of-lidar-in-arcgis.htm).
 
-For the following, make sure these libraries are part of your setup (should be the case if you follow [extended setup spotlight]({{ site.baseurl }}{% link _unit05/unit05-02_extended_setup.md %}){:target="_blank"}.
+For the following, make sure these libraries are part of your setup (should be the case if you follow [extended setup spotlight](https://geomoer.github.io/moer-mpg-gife-basics//unit05/unit05-02_extended_setup.html){:target="_blank"}.
 
 ```r
 libs = c("lidR", "link2GI", "mapview", "raster", "rgdal", "rlas", "sp", "sf")
@@ -22,7 +22,7 @@ libs = c("lidR", "link2GI", "mapview", "raster", "rgdal", "rlas", "sp", "sf")
 ## Checking environment and capabilities to deal with  LAS data sets for further processing
 Technically spoken the LiDAR data comes in the LAS file format (for a format definition i.e. have a look at the [American Society for Photogrammetry & Remote Sensing LAS documentation file](https://www.asprs.org/a/society/committees/standards/LAS_1_4_r13.pdf)). One LAS data set typically but not necessarily covers an area of 1 km by 1 km. Since the point clouds in the LAS data sets are large, a spatial index file (LAX) considerably reduces search and select operations in the data.
 
-Now we make a short general check that we can start over i.e. if everything is ready to use. First load the tutorial data to the [temp]({{ site.baseurl }}{% link _unit05/unit05-02_extended_setup.md %}){:target="_blank"} data folder of your project.
+Now we make a short general check that we can start over i.e. if everything is ready to use. First load the tutorial data to the [temp](https://geomoer.github.io/moer-mpg-gife-basics//unit05/unit05-02_extended_setup.html){:target="_blank"} data folder of your project.
 
 ```r
 # NOTE file size is about 12MB
@@ -55,7 +55,7 @@ If this works, you're good to go.
 
 For training purposes (i.e. installing of missing packages, adapting of external scripts to our needs etc.) you may switch over to the online tutorial [Building a CHM from LiDAR Data](https://github.com/gisma/uavRst/wiki/Building-a-Canopy-Height-Model-(CHM)-using-lidR){:target="_blank"}. 
 
-Please note that the `uavRst` package is depreceated so for ´lidR´ catalog and other operation you have to switch over to the original script on this web page.
+Please note that the `uavRst` package is depreceated so for ´lidR´ catalog and other operation you have to switch over to the original script on this web page.{: .notice--info}
 
 Please follow the tutorial risk a click on the linked content and consider the following points:
 
@@ -241,7 +241,7 @@ pal<-mapview::mapviewPalette("mapviewTopoColors")
 #-----------------
 
 # Get all *.las files of a the folder you have specified to contain the original las files
-las_files = list.files(envrmt$path_lidar_org, pattern = glob2rx("*.las"), full.names = TRUE)
+las_files = list.files(envrmt$path_lidar_org, pattern = glob2rx("*.las"), full.names = TRUE){}
 
 #---- if you run into memory shortages set up the a lidR catalog 
 # we need it for better handling poor available memory 

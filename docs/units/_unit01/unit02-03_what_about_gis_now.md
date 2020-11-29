@@ -35,7 +35,7 @@ Arranging the non-intersecting cells in rows and columns creates an implicit spa
 However, this explicit spatial concept is not yet located in a defined Cartesian coordinate system or in the real world. This location is necessary both for the joint use of raster data with vector data, as well as essential for the geographical referencing of the raster cells with respect to the real world. Therefore, raster data models are basically also provided with a Cartesian coordinate system. However, this has the origin (as usual) in the lower left corner. The grid cells can therefore be identified both by their index and by the Cartesian coordinate system in space.
 {% include figure image_path="/assets/images/unit01/02_raster_crs.png" alt="Raster data model reference systems" caption="Raster data model reference systems. Figure: CC0 via geocompr.robinlovelace.net" %}
 
-## More Information
+## Further Reading
  * A more detailed information for raster data can be found at [Geocomputation with R - Raster data](https://geocompr.robinlovelace.net/spatial-class.html#raster-data){:target="_blank"}.
  * A more detailed information for vector data can be found at [Geocomputation with R - Vector data](https://geocompr.robinlovelace.net/spatial-class.html#vector-data){:target="_blank"}.
 

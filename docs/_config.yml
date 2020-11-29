@@ -45,30 +45,9 @@ author:
   bio              : "Marburg University"
   location         : "Marburg, DE"
   email            : "reudenbach@geo.uni-marburg.de"
-  uri              : "https://www.uni-marburg.de/fb19/personal/mitarbeiter/reudenbachc/index.html"
   home             : "https://gis-ma.org"
-  bitbucket        :
-  codepen          :
-  dribbble         :
   flickr           : "https://www.flickr.com/environmentalinformatics-marburg/"
-  facebook         : "https://www.facebook.com/GeographieMarburg/"
-  foursquare       :
   github           : "GeoMOER"
-  gitlab           :
-  google_plus      :
-  keybase          :
-  instagram        : 
-  lastfm           :
-  linkedin         :
-  pinterest        :
-  soundcloud       :
-  stackoverflow    : 
-  steam            :
-  tumblr           :
-  twitter          : "https://twitter.com/creuden"
-  vine             :
-  weibo            :
-  xing             :
   youtube          : "https://www.youtube.com/channel/UCGiwSv5KYjsNXl6-nZq0SDA"
 
 
@@ -132,22 +111,9 @@ defaults:
   # unit01
   - scope:
       path: ""
-      type: unit00
-    values:
-      category: "Some Formalities"
-      tags: "Unit|01"
-      layout: single
-      sidebar:
-        nav: "units" 
-      toc: true
-      toc_label: On this page      
-        
-  # unit01
-  - scope:
-      path: ""
       type: unit01
     values:
-      category: "Questions & Answers"
+      category: "Spatial Modelling  Concepts"
       tags: "Unit|01"
       layout: single
       sidebar:
@@ -159,7 +125,7 @@ defaults:
       path: ""
       type: unit02
     values:
-      category: "Spatial Modelling  Concepts"
+      category: "Assignments"
       tags: "Unit|02"
       layout: single
       sidebar:
@@ -169,18 +135,8 @@ defaults:
       path: ""
       type: unit03
     values:
-      category: "Project 1: Touching the tree"
+      category: "Material and References"
       tags: "Unit|03"
-      layout: single
-      sidebar:
-        nav: "units" 
-  # unit04
-  - scope:
-      path: ""
-      type: unit04
-    values:
-      category: "Project 2: Competition and Biodiversity"
-      tags: "Unit|04"
       layout: single
       sidebar:
         nav: "units" 
