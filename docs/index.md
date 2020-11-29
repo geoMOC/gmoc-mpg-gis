@@ -27,6 +27,14 @@ Knowledge of spatial and/or temporal aspects of our environment is increasingly 
 
 Geographic Information Science (GIS) is based on versatile and powerful software tools that are used in modeling, analysis, data mining merging and numerous other spatio-temporal applications. Nevertheless the most powerful tool is our mind developing the concepts and developing the necessary algorithms.
 
+#  Geo Information Science Basics
+
+The basic information and general introduction to the conception of this and the parallel [Remote Sensing Course](https://geomoer.github.io//moer-mpg-remote-sensing/) are available at [Geo Information Science Basics](https://geomoer.github.io//moer-mpg-gife-basics/). 
+
+They are an integral and binding part of this course.
+{: .notice--danger}
+
+
 # Intended learning outcomes
 At the end of this course you should be able
 
@@ -52,19 +60,18 @@ The course is linked to the research of the Nature 4.0 project, heavily integrat
 || **Geographic Information Science basics** ||
 | 1 | Geographic Information Science | Get to know basic GIS principles the open software approach and the R-spatial-biotop|
 | 2 | Understanding the working environment the concept of remote sensing GIS and data anaysis and how to deal with it | Check out various methods for handling raster datasets and raster information retrieval in R and GIS |
-|| **Project 1: You cannot see the wood for the trees** | Baseline data analysis |
+|| **Assignments** | What to do? |
 | 3 | Problem: Comprehensive discussion of whatever concepts for tree identification | Deconstruct the problem, identify research tasks and sketch a project workflow |
 | 4 | Spotlight: Setting up your working environment | Getting your PC to work no matter what kind of operating system or hardware | 
 | 5 | Spotlight: Lidar CHMs and more | Getting in touch with the technique and underlying concepts | 
 | 6 | Spotlight: Programming | Improve your workflow and scripting skills | 
 | 7 | Spotlight: Segmentation of trees | 20 Lines of Code for reaching the goal of project 1 |
-| 8 | Project 1 discussion | Present your prelimary paper to your peers |
+| 8 | Project discussion | Present your prelimary paper to your peers |
 | 9 | Peer feedback | Evaluate the work of your peers, reflect your own workflow and discuss potential improvements |
-|| **Project 2: Trees in a forest - competetion densities and more** | Index-based anaysis of tree patterns |
 | 10 | Problem: Relationship of tree (species) in space | Decompose the problem, identify research tasks and sketch a project workflow |
 | 11 | Spotlight: Densities and Competition | Identify and implement meaningful indices |
 | 12 | Spotlight: Paper works| How can I tie it together|
-| 13 | Project 2 discussion  | Present your paper to your peers |
+| 13 | Project  discussion  | Present your paper to your peers |
 || **Wrap up** ||
 | 14 | Feedback and goodbye | Get feedback from your peers and instructors, tell us how you self-assess your skills and happy holidays |
 
