@@ -10,6 +10,13 @@ Light detection and ranging (LiDAR) observations are point clouds representing t
 
 ## Introduction
 
+## LiDAR data nd the  LAS data format
+Technically spoken the LiDAR data comes in the LAS file format (for a format definition i.e. have a look at the [American Society for Photogrammetry & Remote Sensing LAS documentation file](https://www.asprs.org/a/society/committees/standards/LAS_1_4_r13.pdf)). One LAS data set typically but not necessarily covers an area of 1 km by 1 km. Since the point clouds in the LAS data sets are large, a spatial index file (LAX) considerably reduces search and select operations in the data.
+
+Now we make a short general check that we can start over i.e. if everything is ready to use. First load the tutorial data to the [temp](https://geomoer.github.io/moer-mpg-rsgi-basics//unit05/unit05-02_extended_setup.html){:target="_blank"} data folder of your project.
+
+
+## Lidar Software Tools
 The development of the software is rapid. A few years ago, it was only possible to manipulate, manage and analyze LiDAR data with complex special tools.  Especially the (partly (commercial) [LAStools](https://rapidlasso.com/lastools/) software was unrivaled for many years. Many remote sensing and remote sensing software tools have acquired licenses on this basis or developed components independently. Examples are [GRASS GIS](http://grasswiki.osgeo.org/wiki/LIDAR) and [ArcGIS](https://desktop.arcgis.com/en/arcmap/10.3/manage-data/las-dataset/a-quick-tour-of-lidar-in-arcgis.htm).
 Beside the GIS packages there are a number of powerful specialists.  Two important and typical representatives are [3D forest](https://www.3dforest.eu/#about) and [FUSION](http://forsys.cfr.washington.edu/FUSION/fusion_overview.html).
 
@@ -17,7 +24,7 @@ Beside the GIS packages there are a number of powerful specialists.  Two importa
 However all solution can be linked to R (we did it over the years) the `lidr` package has revolutionized the processing of LiDAR data in the R ecotop and is definitely by far the best choice (and even faster an more reliable than commercial tools). Extensive documentation and workflow examples can be found in the Wiki of the respective [GitHub repository](https://github.com/Jean-Romain/lidR). A very recent publication is avaiblable at Remote Sensing of Environment [idR: An R package for analysis of Airborne Laser Scanning (ALS) data](https://www.sciencedirect.com/science/article/pii/S0034425720304314#f0015).
 
 
-
+## Setup your environment and get example data
 
 For the following, make sure these libraries are part of your setup (should be the case if you follow [extended setup spotlight](https://geomoer.github.io/moer-mpg-rsgi-basics//unit05/unit05-02_extended_setup.html){:target="_blank"}.
 
@@ -25,10 +32,6 @@ For the following, make sure these libraries are part of your setup (should be t
 libs = c("lidR", "link2GI", "mapview", "raster", "rgdal", "rlas", "sp", "sf")
 ```
 
-## Checking environment and capabilities to deal with  LAS data sets for further processing
-Technically spoken the LiDAR data comes in the LAS file format (for a format definition i.e. have a look at the [American Society for Photogrammetry & Remote Sensing LAS documentation file](https://www.asprs.org/a/society/committees/standards/LAS_1_4_r13.pdf)). One LAS data set typically but not necessarily covers an area of 1 km by 1 km. Since the point clouds in the LAS data sets are large, a spatial index file (LAX) considerably reduces search and select operations in the data.
-
-Now we make a short general check that we can start over i.e. if everything is ready to use. First load the tutorial data to the [temp](https://geomoer.github.io/moer-mpg-rsgi-basics//unit05/unit05-02_extended_setup.html){:target="_blank"} data folder of your project.
 
 ```r
 # NOTE file size is about 12MB
@@ -44,7 +47,7 @@ las_files = list.files(envrmt$path_tmp,
 
 ```
 
-If you want to read a single LAS file, you can use the readLAS function. Plotting the data set results in a 3D interactive screen which opens from within R.
+If you want to read a single (not to big) LAS file, you can use the `readLAS` function. Plotting the data set results in a 3D interactive screen which opens from within R.
 
 ```r
 lidar_file = readLAS(las_files[1])
@@ -53,24 +56,23 @@ plot(lidar_file, bg = "green", color = "Z",colorPalette = mvTop(256),backend="pc
 
 {% include figure image_path="/assets/videos/las_mof_plot.gif" alt="LiDAR 3D animation." %}
 
-
-
 If this works, you're good to go.
 
-## Creating a Canopy Height Model (CHM) Part 1
+## Creating a Canopy Height Model (CHM) -  "external" tutorial
 
 For training purposes (i.e. installing of missing packages, adapting of external scripts to our needs etc.) you may switch over to the online tutorial [Building a CHM from LiDAR Data](https://github.com/gisma/uavRst/wiki/Building-a-Canopy-Height-Model-(CHM)-using-lidR){:target="_blank"}. 
 
-Please note that the `uavRst` package is depreceated so for ´lidR´ catalog and other operation you have to switch over to the original script on this web page.{: .notice--info}
+Please note that the `uavRst` package is deprecated so for using the ´lidR´ catalog and the following operations it is strongly suggested to switch over to the second script on this web page.{: .notice--info}
 
-Please follow the tutorial risk a click on the linked content and consider the following points:
+However for training purpose and some sensivity studies it is worthwhile to follow the tutorial and consider the following points:
 
 - just try to run the tutorial as it is. Do not integrate it in your project structure (best for training would be to set up a new structure according to your needs)
 - if you are not able to install necessary packages consider if the package is mandatory for success (a viewer may not be necessary etc.).
 - Try to understand what is happening. Do the tutorial **step by step!**
+- exchange the `uavRst` wrapper functions for setting up a `lidr` catalog by the original instructions below.
 
 
-## Creating a Canopy Height Model (CHM) Part 2
+## Creating a Canopy Height Model (CHM) reloaded
 
 After successful application of the tutorial we will transfer it into a suitable script for our workflow. Please check the comments for better understanding and do it **step by step!** again. Please note that the following script is meant to be an basic example how: 
 - to organize scripts in common 
@@ -170,15 +172,15 @@ mapview(raster::raster(file.path(envrmt$path_data_mof,"mof_chm_one_tile.tif")),
 [Full screen version of the map]({{ site.baseurl }}/assets/misc/chm_one_tile.html){:target="_blank"}
 ### Coping with computer memory resources
 
-The above example is based on a las-tile of 250 by 250 meter. That means a fairly small tile size. If you did not run in memory or CPU problems you can deal with these tiles by simple looping.  
+The above example is based on a las-tile of 250 by 250 meter. That means a fairly **small** tile size. If you did not run in memory or CPU problems you can deal with these tiles by simple looping.  
 
 **But** you have to keep in mind that even if a tile based processing can easily be handled with loops but has some pitfalls. E.g. if you compute some focal operations, you have to make sure that if the filter is close to the boundary of the tile that data from the neighboring tile is loaded in addition. Also the tile size may be a problem for your memory availability. 
 
-The lidR package comes with a feature called catalog and a set of catalog functions which make tile-based life easier. A catalog meta object also holds information on e.g. the cartographic reference system of the data or the cores used for parallel processing. So we start over again - this time with a **real** data set.
+The `lidR` package comes with a feature called catalog and a set of catalog functions which make tile-based life easier. A catalog meta object also holds information on e.g. the cartographic reference system of the data or the cores used for parallel processing. So we start over again - this time with a **real** data set.
 
-If not already done [download](http://gofile.me/3Z8AJ/c6m5CfvWZ){:target="_blank"} the data for the target area to the `envrmt$path_lidar_org` folder. 
+If not already done download the course related [LiDAR data set of the MOF area](http://gofile.me/3Z8AJ/c6m5CfvWZ){:target="_blank"}. Store the the data to the **`envrmt$path_lidar_org`** folder. 
 
-Please note that dealing with `lidR` catalogs is pretty stressful for the memory administration of your rsession. So best practices is to:
+Please note that dealing with `lidR` catalogs is pretty stressful for the memory administration of your `rsession`. So best practices is to:
 {: .notice--danger}
 * clean the environment 
 * restart your rsession
@@ -204,6 +206,10 @@ This will help you to avoid frustrating situation like restarting your PC after 
 
 # 0 - load packages
 #-----------------------------
+## clean your environment
+rm(list=ls()) 
+
+# load additional packages
 library("future")
 
 # 1 - source files
@@ -218,6 +224,8 @@ source(file.path(envimaR::alternativeEnvi(root_folder = "~/edu/mpg-envinsys-plyg
 # 2 - define variables
 #---------------------
 
+# switch for activating the lasclip calculation
+lclip=FALSE
 
 #  area of interest (central MOF)
 xmin<-476174.
@@ -253,15 +261,19 @@ las_files = list.files(envrmt$path_lidar_org, pattern = glob2rx("*.las"), full.n
 # we need it for better handling poor available memory 
 
 
+if (lclip) {
 #---- NOTE OTIONALLY you can cut the original big data set  to the smaller extent of the MOF
 #-----NOTE if using the catalog change lidR::readLAS(las_files[1]) to core_aoimof_ctg
 # check on https://rdrr.io/cran/lidR/man/lasclip.html
-core_aoimof<- lidR::lasclipRectangle(lidR::readLAS(las_files[1]), xleft = xmin, ybottom = ymin, xright = xmax, ytop = ymax)
+  core_aoimof<- lidR::lasclipRectangle(lidR::readLAS(las_files[1]), xleft = xmin, ybottom = ymin, xright = xmax, ytop =ymax)
 
 #---- write the new dataset to the level0 folder and create a corresponding index file (lax)
-lidR::writeLAS(core_aoimof,file.path(envrmt$path_level0,"las_mof.las"))
-rlas::writelax(file.path(envrmt$path_level0, "las_mof.las"))
+  lidR::writeLAS(core_aoimof,file.path(envrmt$path_level0,"las_mof.las"))
+  rlas::writelax(file.path(envrmt$path_level0, "las_mof.las"))
 #-----OPTIONAL section finished
+}
+
+
 #---- We assume that you have the "las_mof.las" file in the folder that is stored in envrmt$path_level0 
 #---- setting up lidR catalog
 mof100_ctg <- lidR::readLAScatalog(envrmt$path_level0)
@@ -314,6 +326,7 @@ mapview(raster::raster(file.path(envrmt$path_data_mof,"mof_chm_all.tif")),
 
 
 ```
+
 ### The visualization of an operating lidR catalog action.
 
 The `mof_ctg` catalog is shows the extent of the original las file as provided by the the data server. The vector that is visualized is the resulting `lidR` catalog containing all extracted parameters. Same with the `mof100_ctg` here you see the extracted maximum Altitude of each tile used for visualization. Feel free to investigate the catalog parameters by clicking on the tiles.  
