@@ -23,16 +23,8 @@ Beside the GIS packages there are a number of powerful specialists.  Two importa
 However all solution can be linked to R (we did it over the years) the `lidr` package has revolutionized the processing of LiDAR data in the R ecotop and is definitely by far the best choice (and even faster an more reliable than commercial tools). Extensive documentation and workflow examples can be found in the Wiki of the respective [GitHub repository](https://github.com/Jean-Romain/lidR). A very recent publication is avaiblable at Remote Sensing of Environment [idR: An R package for analysis of Airborne Laser Scanning (ALS) data](https://www.sciencedirect.com/science/article/pii/S0034425720304314#f0015).
 
 
-## How to get started?
 
-For this first example we take a typical situation:
-* we have no idea about the software and possible solutions
-* we have no idea about LiDAR data processing and analysis
-* we just google to _LiDAR lidR tutorial chm_
-
-Among the top ten is [Building a Canopy Height Model-(CHM) using lidR](https://github.com/gisma/uavRst/wiki/Building-a-Canopy-Height-Model-(CHM)-using-lidR). So let's follow the white rabbit...
-
-## Setup your environment and get example data
+## Start up test 
 
 For the following, make sure these libraries are part of your setup (should be the case if you follow [extended setup spotlight](https://geomoer.github.io/moer-mpg-rsgi-basics//unit05/unit05-02_extended_setup.html){:target="_blank"}.
 
@@ -83,6 +75,15 @@ However for training purpose and some sensivity studies it is worthwhile to foll
 - exchange the `uavRst` wrapper functions for setting up a `lidr` catalog by the original instructions below.
 
 
+## How to get started?
+
+For this first example we take a typical situation:
+* we have no idea about the software and possible solutions
+* we have no idea about LiDAR data processing and analysis
+* we just google to _lidR package tutorial _
+
+Among the top ten is [The lidR package book](https://jean-romain.github.io/lidRbook/){:target="_blank"}. So let's follow the white rabbit...
+
 ## Creating a Canopy Height Model (CHM) reloaded
 
 After successful application of the tutorial we will transfer it into a suitable script for our workflow. Please check the comments for better understanding and do it **step by step!** again. Please note that the following script is meant to be an basic example how: 
@@ -93,7 +94,7 @@ For a deeper understanding please look at the [Spotlight Best practices in scrip
 
 
 
-After revisiting the tutorial is seems to be a good choice to follow the tutorial of the `lidR` developer that is [linked](https://github.com/Jean-Romain/lidR/wiki/Rasterizing-perfect-canopy-height-models){:target="_blank"} in the above tutorial. Why? because for the first Jean-Romain Roussel explains 6 ways how to create in a very simple approach a CHM, second to show up that it makes sense to read and third to loop back because it does not work with bigger files. Let us start with the new script structure.
+After revisiting the tutorial is seems to be a good choice to follow the tutorial of the `lidR` developer that is [6 [Digital Surface Model and Canopy Height model](https://jean-romain.github.io/lidRbook/chm.html){:target="_blank"} in the above tutorial. Why? because for the first Jean-Romain Roussel explains 6 ways how to create in a very simple approach a CHM, second to show up that it makes sense to read and third to loop back because it does not work with bigger files. Let us start with the new script structure.
 
 
 ```r
