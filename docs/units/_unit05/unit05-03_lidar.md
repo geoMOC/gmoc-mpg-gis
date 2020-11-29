@@ -13,7 +13,6 @@ Light detection and ranging (LiDAR) observations are point clouds representing t
 ## LiDAR data and LAS data format
 Technically spoken the LiDAR data comes in the LAS file format (for a format definition i.e. have a look at the [American Society for Photogrammetry & Remote Sensing LAS documentation file](https://www.asprs.org/a/society/committees/standards/LAS_1_4_r13.pdf)). One LAS data set typically but not necessarily covers an area of 1 km by 1 km. Since the point clouds in the LAS data sets are large, a spatial index file (LAX) considerably reduces search and select operations in the data.
 
-Now we make a short general check that we can start over i.e. if everything is ready to use. First load the tutorial data to the [temp](https://geomoer.github.io/moer-mpg-rsgi-basics//unit05/unit05-02_extended_setup.html){:target="_blank"} data folder of your project.
 
 
 ## Brief Overview of LiDAR Software Tools
@@ -36,6 +35,9 @@ Among the top ten is [Building a Canopy Height Model-(CHM) using lidR](https://g
 ## Setup your environment and get example data
 
 For the following, make sure these libraries are part of your setup (should be the case if you follow [extended setup spotlight](https://geomoer.github.io/moer-mpg-rsgi-basics//unit05/unit05-02_extended_setup.html){:target="_blank"}.
+
+We make a short general check that we can start over i.e. if everything is ready to use. First load the tutorial data to an appropriate [data folder](https://geomoer.github.io/moer-mpg-rsgi-basics//unit05/unit05-02_extended_setup.html){:target="_blank"} of your project.
+
 
 ```r
 libs = c("lidR", "link2GI", "mapview", "raster", "rgdal", "rlas", "sp", "sf")
