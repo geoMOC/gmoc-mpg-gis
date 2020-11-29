@@ -24,6 +24,15 @@ Beside the GIS packages there are a number of powerful specialists.  Two importa
 However all solution can be linked to R (we did it over the years) the `lidr` package has revolutionized the processing of LiDAR data in the R ecotop and is definitely by far the best choice (and even faster an more reliable than commercial tools). Extensive documentation and workflow examples can be found in the Wiki of the respective [GitHub repository](https://github.com/Jean-Romain/lidR). A very recent publication is avaiblable at Remote Sensing of Environment [idR: An R package for analysis of Airborne Laser Scanning (ALS) data](https://www.sciencedirect.com/science/article/pii/S0034425720304314#f0015).
 
 
+## How to get started?
+
+For this first example we take a typical situation:
+* we have no idea about the software and possible solutions
+* we have no idea about the whole "kosmos" LiDAR data processing
+* we just google to _LiDAR lidR tutorial chm_
+
+Among the top ten is [Building a Canopy Height Model-(CHM) using lidR](https://github.com/gisma/uavRst/wiki/Building-a-Canopy-Height-Model-(CHM)-using-lidR). So let's follow the white rabbit...
+
 ## Setup your environment and get example data
 
 For the following, make sure these libraries are part of your setup (should be the case if you follow [extended setup spotlight](https://geomoer.github.io/moer-mpg-rsgi-basics//unit05/unit05-02_extended_setup.html){:target="_blank"}.
