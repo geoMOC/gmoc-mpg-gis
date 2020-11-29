@@ -1,0 +1,19 @@
+
+# /_data/authors.yml
+
+- nauss:
+  name             : "Thomas Nauss"
+  avatar           : "/assets/images/tnauss.jpg"
+  email            : "nauss@geo.uni-marburg.de"
+  home             : "https://www.uni-marburg.de/de/fb19/disciplines/physisch/umweltinformatik/umweltinformatik"
+  bio              : "Marburg University"
+  location         : "Marburg, DE"
+
+- reudenbach:
+  name             : "Chris Reudenbach"
+  avatar           : "/assets/images/creudenbach.jpg"
+  email            : "reudenbach@uni-marburg.de"
+  home             : "https://gis-ma.org"
+  bio              : "Marburg University"
+  location         : "Marburg, DE"
+
