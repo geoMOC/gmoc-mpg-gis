@@ -10,13 +10,13 @@ Light detection and ranging (LiDAR) observations are point clouds representing t
 
 ## Introduction
 
-## LiDAR data nd the  LAS data format
+## LiDAR data and LAS data format
 Technically spoken the LiDAR data comes in the LAS file format (for a format definition i.e. have a look at the [American Society for Photogrammetry & Remote Sensing LAS documentation file](https://www.asprs.org/a/society/committees/standards/LAS_1_4_r13.pdf)). One LAS data set typically but not necessarily covers an area of 1 km by 1 km. Since the point clouds in the LAS data sets are large, a spatial index file (LAX) considerably reduces search and select operations in the data.
 
 Now we make a short general check that we can start over i.e. if everything is ready to use. First load the tutorial data to the [temp](https://geomoer.github.io/moer-mpg-rsgi-basics//unit05/unit05-02_extended_setup.html){:target="_blank"} data folder of your project.
 
 
-## Lidar Software Tools
+## Brief Overview of LiDAR Software Tools
 The development of the software is rapid. A few years ago, it was only possible to manipulate, manage and analyze LiDAR data with complex special tools.  Especially the (partly (commercial) [LAStools](https://rapidlasso.com/lastools/) software was unrivaled for many years. Many remote sensing and remote sensing software tools have acquired licenses on this basis or developed components independently. Examples are [GRASS GIS](http://grasswiki.osgeo.org/wiki/LIDAR) and [ArcGIS](https://desktop.arcgis.com/en/arcmap/10.3/manage-data/las-dataset/a-quick-tour-of-lidar-in-arcgis.htm).
 Beside the GIS packages there are a number of powerful specialists.  Two important and typical representatives are [3D forest](https://www.3dforest.eu/#about) and [FUSION](http://forsys.cfr.washington.edu/FUSION/fusion_overview.html).
 
