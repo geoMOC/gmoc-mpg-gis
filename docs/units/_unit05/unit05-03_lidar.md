@@ -80,7 +80,7 @@ However for training purpose and some sensivity studies it is worthwhile to foll
 For this first example we take a typical situation:
 * we have no idea about the software and possible solutions
 * we have no idea about LiDAR data processing and analysis
-* we just google to _lidR package tutorial _
+* we just google something like *lidR package tutorial*
 
 Among the top ten is [The lidR package book](https://jean-romain.github.io/lidRbook/){:target="_blank"}. So let's follow the white rabbit...
 
@@ -94,7 +94,7 @@ For a deeper understanding please look at the [Spotlight Best practices in scrip
 
 
 
-After revisiting the tutorial is seems to be a good choice to follow the tutorial of the `lidR` developer that is [6 [Digital Surface Model and Canopy Height model](https://jean-romain.github.io/lidRbook/chm.html){:target="_blank"} in the above tutorial. Why? because for the first Jean-Romain Roussel explains 6 ways how to create in a very simple approach a CHM, second to show up that it makes sense to read and third to loop back because it does not work with bigger files. Let us start with the new script structure.
+After revisiting the tutorial is seems to be a good choice to follow the tutorial of the `lidR` developer that is  [Digital Surface Model and Canopy Height model](https://jean-romain.github.io/lidRbook/chm.html){:target="_blank"} in the above tutorial. Why? because for the first Jean-Romain Roussel explains 6 ways how to create in a very simple approach a CHM, second to show up that it makes sense to read and third to loop back because it does not work with bigger files. Let us start with the new script structure.
 
 
 ```r
