@@ -24,12 +24,12 @@ If enrolled in both courses, the remote results must be integrated.
  
 Please consider the principles of transparency, reproducibility and communication mentioned in the basics. That is, the source code should be available on GitHub and the resulting article should follow the usual conventions of good scientific practice. 
 
-The graded course certificate will be an article following the type “Practical Tools” (but up to 2,000 words) of Methods in Ecology and Evolution that describes the project from its motivation and intention over the methods and results to the discussion of the final information. 
+The graded course certificate will be an article following the type “Practical Tools” (but up to 3,000 words) of Methods in Ecology and Evolution that describes the project from its motivation and intention over the methods and results to the discussion of the final information. 
 
 There will only be one article for both courses (the remote sensing and the GIS course).
 {: .notice--info}
 
-* [Prcatical Tools Examples](https://besjournals.onlinelibrary.wiley.com/doi/toc/10.1111/(ISSN)2041-210x.PracticalToolsFieldMethodsMEE32018)
+* [Practical Tools Examples](https://besjournals.onlinelibrary.wiley.com/doi/toc/10.1111/(ISSN)2041-210x.PracticalToolsFieldMethodsMEE32018)
 * [Practical Tools Blog](https://methodsblog.com/tag/practical-tools/)
 
 Even if pretty much more comprehensive The following publications can be used as inspiration for the article.
@@ -40,4 +40,9 @@ Even if pretty much more comprehensive The following publications can be used as
 
 Please note that it should be a *short* communication. The page number of your article should be clearly less than ten pages.
 {: .notice--info}
+### Further Notes
+
+
+
+Please use the upcoming spotlight units as a sort of guideline and a source of inspiration for the compilation.
 
