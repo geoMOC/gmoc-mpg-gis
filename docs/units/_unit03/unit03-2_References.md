@@ -1,5 +1,5 @@
 ---
-title: "References"
+title: "GI materials and readings"
 toc: true
 toc_label: In this example
 ---
@@ -24,12 +24,9 @@ The references of the course
  
 ## Scientific Reading and Writing shorties
 
-* [Critical Reading](https://writingcenter.gmu.edu/guides/critical-reading)
-* [How to write a Research Question](https://writingcenter.gmu.edu/guides/how-to-write-a-research-question)
-* [Example Worflow scientific Work](https://libraries.indiana.edu/sites/default/files/Develop_a_Research_Question.pdf)
 
 ### Software related Help
-  * [idR: An R package for analysis of Airborne Laser Scanning (ALS) data](https://www.sciencedirect.com/science/article/pii/S0034425720304314#f0015)
+  * [lidR: An R package for analysis of Airborne Laser Scanning (ALS) data](https://www.sciencedirect.com/science/article/pii/S0034425720304314#f0015)
   * [R](https://cran.r-project.org/){:target="_blank"} — the interpreter can be installed on any operation system.
   * [RStudio](https://www.rstudio.com/){:target="_blank"} — we recommend to use R Studio for (interactive) programming with R.
   * [Git](https://git-scm.com/downloads){:target="_blank"} environment for your operating system. 
