@@ -229,6 +229,8 @@ set.seed(1000)
 return(envrmt)
 ```
 ### Main Control File
+
+now we need something like a main control file
 ```r
 #------------------------------------------------------------------------------
 # Type: control script 
@@ -238,9 +240,9 @@ return(envrmt)
 #               - merge all image to one image
 #               - clip the image to the sapflow half moon
 #               - calculates synthetic bands
+#               -
+#               -
 #               
-#              
-#              
 # Data: regular authority provided airborne RGB imagery 
 # Output: merged, clipped and corrected image of AOI, stack of synthetic bands
 # Copyright: Chris Reudenbach, Thomas Nauss 2017,2020, GPL (>= 3)
@@ -274,12 +276,14 @@ source(file.path(envimaR::alternativeEnvi(root_folder = "~/edu/mpg-envinsys-plyg
 
 # 2 start analysis 
 #-----------------
-## step 05
+## source control 05 
 source(file.path(rootDir,"msc-phygeo-class-of-2020-creu/src/fun_rs/05_prepcrocess_RGB.R"))
 
-## step 20
+## source control 20
 source("src/fun_rs/20_calculate_synthetic_bands.R")
 
+## source control 50
+source("src/fun_rs/50_LLO_rf_classification.R")
 
 
 ```
