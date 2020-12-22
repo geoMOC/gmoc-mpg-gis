@@ -43,5 +43,11 @@ The references of the course
 [The lidR package book](https://jean-romain.github.io/lidRbook/){:target="_blank"}
 
 
+### More R related stuff
+
+* Introduction to Spatial Data Programming with R [Michael Dorman](http://132.72.155.230:3838/r/index.html) gives a lot of support for all kind of spatio temporal programming issues
+* Spatial Data Science with R [Robert Hijmans](https://rspatial.org/) website provides a valuable insight in the `raster` and `terra` package with a lot of tutorials.
+
+
 
   
