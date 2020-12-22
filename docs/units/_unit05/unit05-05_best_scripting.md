@@ -135,6 +135,7 @@ mapview(raster(file.path(envrmt$path_data_mof,"chm_dsmtin_1m.tif")),
 
 
 ```
+### Adaption of 000_setup.R
 
 To utilize this conept we need to adapt the `000_setup.R` script. Basically we have add the argument `fkts` which is pointing to a folder which contains all of our functions - in this case the `cut_mof()` function. Addtionally we have moved some of the common variables and options in the basic setup file. 
 
@@ -222,4 +223,59 @@ epsg = 25832
 set.seed(1000)
 
 return(envrmt)
+```
+### Main Control File
+```r
+#------------------------------------------------------------------------------
+# Type: control script 
+# Name: 00_preprocess_RGB.R
+# Author: Chris Reudenbach, creuden@gmail.com
+# Description:  - fixes the white areas of airborne RGB images
+#               - merge all image to one image
+#               - clip the image to the sapflow half moon
+#               - calculates synthetic bands
+#               
+#              
+#              
+# Data: regular authority provided airborne RGB imagery 
+# Output: merged, clipped and corrected image of AOI, stack of synthetic bands
+# Copyright: Chris Reudenbach, Thomas Nauss 2017,2020, GPL (>= 3)
+# git clone https://github.com/GeoMOER-Students-Space/msc-phygeo-class-of-2020-creu.git
+#------------------------------------------------------------------------------
+
+## clean your environment
+## 
+rm(list=ls()) 
+
+
+# 0 - load additional packages
+#-----------------------------
+# for an unique combination of all files in the file list
+# google expression: rcran unique combination of vector 
+# alternative google expression: expand.grid unique combinations
+# have a look at: https://stackoverflow.com/questions/17171148/non-redundant-version-of-expand-grid
+library(gtools)
+require(envimaR)
+
+# 1 - source setup file
+
+
+source(file.path(envimaR::alternativeEnvi(root_folder = "~/edu/mpg-envinsys-plygrnd",
+                                          alt_env_id = "COMPUTERNAME",
+                                          alt_env_value = "PCRZP",
+                                          alt_env_root_folder = "F:/BEN/edu/mpg-envinsys-plygrnd"),
+                 "msc-phygeo-class-of-2020-creu/src/000_setup.R"))
+
+
+
+# 2 start analysis 
+#-----------------
+## step 05
+source(file.path(rootDir,"msc-phygeo-class-of-2020-creu/src/fun_rs/05_prepcrocess_RGB.R"))
+
+## step 20
+source("src/fun_rs/20_calculate_synthetic_bands.R")
+
+
+
 ```
