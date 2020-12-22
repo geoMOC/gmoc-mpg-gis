@@ -47,6 +47,7 @@ The references of the course
 
 * Introduction to Spatial Data Programming with R [Michael Dorman](http://132.72.155.230:3838/r/index.html) gives a lot of support for all kind of spatio temporal programming issues
 * Spatial Data Science with R [Robert Hijmans](https://rspatial.org/) website provides a valuable insight in the `raster` and `terra` package with a lot of tutorials.
+* Efficient R programming [Colin Gillespie](https://csgillespie.github.io/efficientR/) If you want to know it really have allook at this book.
 
 
 
