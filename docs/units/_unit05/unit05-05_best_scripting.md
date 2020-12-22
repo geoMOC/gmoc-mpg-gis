@@ -29,7 +29,11 @@ So if I want to extract a section from a LAS file it would be very helpful to be
 
 Furthermore it is mandatory for further projects to have a detailed or standardized documentation. This costs once more time but pays off more than.  Please note that the following examples already use the `Roxygen2` documentation syntax which can be used later for automated documentation 
 
+Let us start with the `10_CHM_Catalog.R` control script. This script already uses a setup script (`000_setup.R`) to create a reproducible environment. So we have to identify four different aspects:
 
+* what is code that is used again and again? -> make a function of it
+* what is the general setup for my working environment? -> put it into the setup script
+* what are the overall control structures (workflow, settings etc.)-> create a master control file for ruling the rest
 
 ```r
 #------------------------------------------------------------------------------
