@@ -10,13 +10,17 @@ At the moment there don't seem to be any real advantages to using functions inst
 However, we also notice that we still have to do a lot of preprocessing and already the control files are starting to get cluttered. 
 Therefore it makes sense to separate and generalize some repetitive functionalities.  For example, the preprocessing of the lidar data up to the correct setup of the catalog. 
 
+Keep in mind we should go one step further and [follow Hadley Wickham's explanation](https://r4ds.had.co.nz/functions.html#when-should-you-write-a-function) when you should write a function?  
+
 ## Splitting up the control file
-First we split up the control files to reduce clarify structure and reduce the cycling of setting up the environment preprocessing data and so on.
-It is a good practice to separate at least data preprocessing and data analysis. Furthermore all code that runs more than once should be a function.
+However we start simply with splitting up the control files to clarify the structure and reduce the redundant repetitions.
 
-This seperation means that we need a kind of a master control script or usecase. 
+It is a good practice to separate at least setup of a projet, data pre-processing, data analysis and the presentation of the results. 
+{: .notice--success}
 
-We start bottom up. First we transform the clipping nto a function.
+This separation means that we need a kind of a master control script that rules the workflow and provides general settings. 
+
+We start bottom up. First we transform the clipping into a function.
 
 
 ### Seperating the clipping of an arbitrary Area of Interest from LAS data
