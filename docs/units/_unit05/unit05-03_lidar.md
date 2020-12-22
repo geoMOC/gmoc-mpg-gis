@@ -364,5 +364,5 @@ To answer this questions we need a two folded approach. First we need technicall
 
 * The spotlight [simple functions]({{ site.baseurl }}{% link _unit05/unit05-05_best_scripting.md %}){:target="_blank"} deals with the first task. It shows to strip this control file into useful functions. Remember all functions are stored in the folder `envrmt$path_src`. 
 * The spotlight [validation strategies]({{ site.baseurl }}{% link _unit05/unit05-09_validation_strategies.md %}){:target="_blank"} deals with the second task.
-* Technically everything is prepared to dive into  [tree segmentation ]({{ site.baseurl }}{% link _unit05/unit05-07_segmentation_strategies.md %}){:target="_blank"}strategies.
+* Technically everything is prepared to dive into  [tree segmentation ]({{ site.baseurl }}{% link _unit05/unit05-09_segmentation_strategies.md %}){:target="_blank"}strategies.
 
