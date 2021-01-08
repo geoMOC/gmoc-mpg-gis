@@ -18,14 +18,13 @@ The following two articles provide a good introduction to the established approa
 
 ## Hands on
 
-According to the overall Spotlight [LiDAR data handling & more]({{ site.baseurl }}{% link _unit05/unit05-05_best_scripting.md %}){:target="_blank"}.  It seems to be a good exercise to have a look at Jean-Romain Roussels vignette dealing with tree segmentation and metrics computation [Segementation and Metrics](https://github.com/Jean-Romain/lidR/wiki/Segment-individual-trees-and-compute-metrics){:target="_blank"}. 
-
-Other useful sources are the chapters: 
-* [Derived metrics at the grid level](https://jean-romain.github.io/lidRbook/aba.html)
-* [Derived metrics at the tree level](https://jean-romain.github.io/lidRbook/tba.html)
-* [Derived metrics at the voxel level](https://jean-romain.github.io/lidRbook/vba.html)
-* [Derived metrics at the point level](https://jean-romain.github.io/lidRbook/pba.html)
-* [Indiviual Tree Segementation](https://jean-romain.github.io/lidRbook/engine.html#engine-its)
+According to the overall Spotlight [LiDAR data handling & more]({{ site.baseurl }}{% link _unit05/unit05-05_best_scripting.md %}){:target="_blank"}.  It seems to be a good starting point to have a look at Jean-Romain Roussels vignettes and tutorials. There are a lot of excellent tutorials on his github pages dealing with tree segmentation and metrics computation:
+* [Segementation and Metrics](https://github.com/Jean-Romain/lidR/wiki/Segment-individual-trees-and-compute-metrics){:target="_blank"}. 
+* [Derived metrics at the grid level](https://jean-romain.github.io/lidRbook/aba.html){:target="_blank"}
+* [Derived metrics at the tree level](https://jean-romain.github.io/lidRbook/tba.html){:target="_blank"}
+* [Derived metrics at the voxel level](https://jean-romain.github.io/lidRbook/vba.html){:target="_blank"}
+* [Derived metrics at the point level](https://jean-romain.github.io/lidRbook/pba.html){:target="_blank"}
+* [Indiviual Tree Segementation](https://jean-romain.github.io/lidRbook/engine.html#engine-its){:target="_blank"}
 
 ## Further Readings
 [Quin et al.](https://www.researchgate.net/profile/Clement_Mallet/publication/305400942_Individual_tree_segmentation_over_large_areas_using_airborne_LiDAR_point_cloud_and_very_high_resolution_optical_imagery/links/5790836308ae108aa03edfcc/Individual-tree-segmentation-over-large-areas-using-airborne-LiDAR-point-cloud-and-very-high-resolution-optical-imagery.pdf){:target="_blank"} Individual tree segmentation over large areas using airborne LiDAR point cloud and very high resolution optical imagery

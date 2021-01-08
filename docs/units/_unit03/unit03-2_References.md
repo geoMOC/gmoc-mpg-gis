@@ -38,8 +38,8 @@ The references of the course
   * [usethis](https://usethis.r-lib.org/){:target="_blank"} 
 
 ### GI Software Tutorials and GI textbooks
- * The core of GIScience [Tolpekin & Stein 2012](http://www.charim.net/sites/default/files/handbook/datamanagement/3/3.3/The%20core%20of%20GIScience%2C%20a%20system%20-based%20approach.pdf){:target="_blank"}, [Download](ftp://ftp.itc.nl/pub/ders/CoreBook2014_metadata.pdf){:target="_blank"} 
- * **HIGHLY Recommended**  Geocomputation with R [Lovelace, Nowosad & Muenchow 2018](https://geocompr.robinlovelace.net/){:target="_blank"}
+ * The editors Tolpekin & Stein 2012  [The core of GIScience](http://www.charim.net/sites/default/files/handbook/datamanagement/3/3.3/The%20core%20of%20GIScience%2C%20a%20system%20-based%20approach.pdf){:target="_blank"} [Download](ftp://ftp.itc.nl/pub/ders/CoreBook2014_metadata.pdf){:target="_blank"} are providing an excellent insight into GI concepts.
+ * **HIGHLY Recommended** From the authors trio Lovelace, Nowosad & Muenchow  - [Geocomputation with R](https://geocompr.robinlovelace.net/){:target="_blank"}
  * Perfect  manual for most `lidr` related stuff - [The lidR package book](https://jean-romain.github.io/lidRbook/){:target="_blank"}
 
 
