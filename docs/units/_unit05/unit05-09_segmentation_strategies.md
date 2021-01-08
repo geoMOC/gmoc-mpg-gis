@@ -18,7 +18,7 @@ The following two articles provide a good introduction to the established approa
 
 ## Hands on
 
-According to the overall Spotlight [LiDAR data handling & more]({{ site.baseurl }}{% link _unit05/unit05-05_best_scripting.md %}){:target="_blank"}.  It seems to be a good starting point to have a look at Jean-Romain Roussels vignettes and tutorials. There are a lot of excellent tutorials on his github pages dealing with tree segmentation and metrics computation:
+It seems to be a good starting point to have a look at Jean-Romain Roussels vignettes and tutorials. There are a lot of excellent tutorials on his github pages dealing with tree segmentation and metrics computation:
 * [Segementation and Metrics](https://github.com/Jean-Romain/lidR/wiki/Segment-individual-trees-and-compute-metrics){:target="_blank"}. 
 * [Derived metrics at the grid level](https://jean-romain.github.io/lidRbook/aba.html){:target="_blank"}
 * [Derived metrics at the tree level](https://jean-romain.github.io/lidRbook/tba.html){:target="_blank"}

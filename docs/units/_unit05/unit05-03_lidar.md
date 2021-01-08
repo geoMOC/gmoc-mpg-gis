@@ -76,7 +76,6 @@ After successful application of the tutorial we will transfer it into a suitable
 - to organize scripts in common 
 - with a hands on example for creating a canopy height model.
 
-For a deeper understanding please look at the [Spotlight Best practices in scripting with R]({{ site.baseurl }}{% link _unit05/unit05-05_best_scripting.md %}){:target="_blank"}.  
 
 
 
