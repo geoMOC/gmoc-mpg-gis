@@ -49,6 +49,7 @@ The references of the course
 * Spatial Data Science with R [Robert Hijmans](https://rspatial.org/) website provides a valuable insight in the `raster` and `terra` package with a lot of tutorials.
 * Efficient R programming [Colin Gillespie](https://csgillespie.github.io/efficientR/) If you want to know it really have allook at this book.
 
-
+### Validation Data
+The [MOF public data](https://github.com/MarburgOpenForest/MOFGeoDB) of Marburg Open Forest is a comprehensive data base for validation and testing purposes
 
   
