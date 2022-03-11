@@ -17,18 +17,15 @@
 
 
 ##### URL #####################################################################
-# Serve on OER
-#url: "https://ilias.uni-marburg.de"
-#baseurl: "/data/UNIMR/lm_data/lm_2092236/"
 
 
 # Serve on GitHub
-url: https://geomoer.github.io/
-baseurl: "/moer-mpg-gis/"
+url: https://geoMOC.github.io/
+baseurl: "/gmoc-mpg-gis/"
 
 ##### Title ###################################################################
-title: Lab of Environmental Informatics
-name: &name "Lab of Environmental Informatics" # &name is a YAML anchor which can be *referenced later
+title: GISMA course resources
+name: &name "GISMA course resources" # &name is a YAML anchor which can be *referenced later
 email: reudenbach@geo.uni-marburg.de
 description: >- # this means to ignore newlines until next item
   course course-materials geography remote-sensing marburg-open-educational-resource 
@@ -45,9 +42,29 @@ author:
   bio              : "Marburg University"
   location         : "Marburg, DE"
   email            : "reudenbach@geo.uni-marburg.de"
+  uri              : "https://www.uni-marburg.de/fb19/personal/mitarbeiter/reudenbachc/index.html"
   home             : "https://gis-ma.org"
-  flickr           : "https://www.flickr.com/environmentalinformatics-marburg/"
-  github           : "GeoMOER"
+  bitbucket        :
+  codepen          :
+  dribbble         :
+  facebook         : "https://www.facebook.com/GeographieMarburg/"
+  foursquare       :
+  github           : "geoMOC"
+  gitlab           :
+  google_plus      :
+  keybase          :
+  instagram        : 
+  lastfm           :
+  linkedin         :
+  pinterest        :
+  soundcloud       :
+  stackoverflow    : 
+  steam            :
+  tumblr           :
+  twitter          : "https://twitter.com/creuden"
+  vine             :
+  weibo            :
+  xing             :
   youtube          : "https://www.youtube.com/channel/UCGiwSv5KYjsNXl6-nZq0SDA"
 
 
@@ -58,7 +75,7 @@ excerpt_separator: <!--more-->
 # Build settings
 markdown: kramdown
 # theme: minima
-remote_theme: "GeoMOER/moer-jekyll-theme"
+remote_theme: "https://github.com/gisma-courses/moer-jekyll-theme"
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 auto_ids: true
 
